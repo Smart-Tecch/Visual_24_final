@@ -1,59 +1,89 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
+const pages = [
+  { name: "Home", to: "/" },
+  { name: "About Us", to: "/about" },
+  { name: "Courses", to: "/courses" },
+  { name: "Projects", to: "/projects" },
+  { name: "Contact Us", to: "/contact" },
+];
 
 const Navbar = () => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <header>
       <nav>
+        {/* Logo */}
         <Link className="hover:text-blue logo" href={`/`}>
           <Image src={`/icons/logo.png`} alt="logo" width={24} height={24} />
           <p>Visual 24</p>
         </Link>
 
-        <ul className="sm:hidden">
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/`}
-          >
-            Home
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/about`}
-          >
-            About Us
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/courses`}
-          >
-            Courses
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/projects`}
-          >
-            Projects
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/admission`}
-          >
-            Admissions
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/contact`}
-          >
-            Contact
-          </Link>
-          <Link
-            className="hover:text-blue hover:underline underline-offset-4"
-            href={`/blog`}
-          >
-            Blog
-          </Link>
+        {/* Desktop Links (Hidden on small screens, shown on large screens) */}
+        <ul className="max-lg:hidden">
+          {pages.map((page) => (
+            <Link
+              key={page.name}
+              className="hover:text-blue hover:underline underline-offset-4"
+              href={page.to}
+            >
+              {page.name}
+            </Link>
+          ))}
         </ul>
+
+        {/* Mobile Hamburger / Toggle Button */}
+        <button
+          onClick={() => setIsActive(!isActive)}
+          className={`lg:hidden p-2 text-foreground cursor-pointer z-50 ${isActive ? `hidden` : ``}`}
+          aria-label="Toggle Menu"
+        >
+          <Menu className="size-12 border border-primary p-2 rounded-[5px]" />
+        </button>
+
+        {/* Mobile Slide-out Sidebar (Controlled by isActive state) */}
+        <aside
+          className={`absolute top-0 right-0 w-72 min-h-screen bg-dark-100 border-l border-border-dark flex flex-col p-6 transition-transform duration-300 lg:hidden z-40 overflow-hidden ${
+            isActive ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Mobile Hamburger / Toggle Button */}
+          <button
+            onClick={() => setIsActive(!isActive)}
+            className="lg:hidden p-2 text-foreground cursor-pointer z-50 border-b border-blue"
+            aria-label="Toggle Menu"
+          >
+            <X className="size-12 border border-primary p-2 rounded-[5px]" />
+          </button>
+
+          <section className="flex flex-col gap-6 mt-5">
+            {pages.map((page) => (
+              <Link
+                key={page.name}
+                onClick={() => setIsActive(false)}
+                className="hover:text-blue text-lg font-medium"
+                href={page.to}
+              >
+                {page.name}
+              </Link>
+            ))}
+          </section>
+
+          {/* <section className="mt-8">
+            <button
+              onClick={() => setIsActive(false)}
+              className="w-full bg-primary text-black py-2.5 rounded-[6px] font-semibold"
+            >
+              Click
+            </button>
+          </section> */}
+        </aside>
       </nav>
     </header>
   );
