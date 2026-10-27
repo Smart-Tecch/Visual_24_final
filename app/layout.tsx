@@ -17,6 +17,9 @@ const martianMono = Martian_Mono({
 export const metadata: Metadata = {
   title: "Visual 24",
   description: "A IT & Creative skills school.",
+  verification: {
+    google: "googlef17b3180d990c7e1",
+  },
 };
 
 export default function RootLayout({

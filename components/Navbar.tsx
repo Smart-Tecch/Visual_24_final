@@ -10,7 +10,7 @@ const Navbar = () => {
           <p>Visual 24</p>
         </Link>
 
-        <ul>
+        <ul className="sm:hidden">
           <Link
             className="hover:text-blue hover:underline underline-offset-4"
             href={`/`}
