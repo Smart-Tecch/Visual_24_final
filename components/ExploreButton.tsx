@@ -6,11 +6,11 @@ const ExploreButton = () => {
     <button
       type="button"
       id="explore-btn"
-      className="mt-7 mx-auto"
+      className="mt-7 mx-auto "
       onClick={() => console.log("Clicked")}
     >
-      <a href="#events">
-        Explore Events
+      <a href="#events" className="hover:cursor-pointer">
+        Explore Courses
         <Image
           src="/icons/arrow-down.svg"
           alt="arrow down"
