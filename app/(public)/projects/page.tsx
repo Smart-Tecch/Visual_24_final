@@ -1,7 +1,5 @@
-import { projects } from "@/public/projects";
-
 const page = () => {
-  return <div>{projects.forEach((projects) => {})}</div>;
+  return <div>page</div>;
 };
 
 export default page;

@@ -1,5 +1,5 @@
 import ExploreButton from "@/components/ExploreButton";
-import projects from "@/public/projects.json";
+const projects = [1, 2, 3, 4];
 import { Card } from "@/components/ui/card";
 
 const page = () => {
