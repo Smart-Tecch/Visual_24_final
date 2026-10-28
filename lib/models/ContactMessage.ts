@@ -2,18 +2,36 @@ import mongoose, { Schema, models } from "mongoose";
 
 const ContactMessageSchema = new Schema(
   {
-    name: { type: String, required: true },
-    phone: { type: String, required: true },
-    email: { type: String },
-    courseInterest: { type: String },
-    message: { type: String, required: true },
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+      trim: true,
+    },
+    phone: {
+      type: String,
+      required: [true, "Phone number is required"],
+    },
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    courseInterest: {
+      type: String,
+    },
+    message: {
+      type: String,
+      required: [true, "Message is required"],
+    },
     status: {
       type: String,
       enum: ["new", "contacted", "closed"],
       default: "new",
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+  },
 );
 
 const ContactMessage =
