@@ -1,7 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextResponse, connection } from "next/server";
 import { getCourses, getFeaturedCourses } from "@/lib/actions/course.actions";
 
 export async function GET(request: Request) {
+  await connection();
+
   try {
     const { searchParams } = new URL(request.url);
     const featured = searchParams.get("featured");

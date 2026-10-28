@@ -1,10 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextResponse, connection } from "next/server";
 import {
   getProjects,
   getFeaturedProjects,
 } from "@/lib/actions/project.actions";
 
 export async function GET(request: Request) {
+  await connection(); // ✅ Add this line right at the start of GET
   try {
     const { searchParams } = new URL(request.url);
     const featured = searchParams.get("featured");
