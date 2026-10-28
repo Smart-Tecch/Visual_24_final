@@ -1,10 +1,11 @@
-import { NextResponse } from "next/server";
+import { connection, NextResponse } from "next/server";
 import { getProjectBySlug } from "@/lib/actions/project.actions";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
+  await connection();
   try {
     const { slug } = await params;
 

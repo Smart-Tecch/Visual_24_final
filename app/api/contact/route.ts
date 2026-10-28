@@ -1,7 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextResponse, connection } from "next/server";
 import { createContactMessage } from "@/lib/actions/contact.actions";
 
 export async function POST(request: Request) {
+  await connection();
+
   try {
     const formData = await request.formData();
 
