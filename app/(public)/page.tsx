@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { getFeaturedCourses } from "@/lib/actions/course.actions";
 import { getFeaturedProjects } from "@/lib/actions/project.actions";
 import CourseCard from "@/components/CourseCard";
@@ -52,6 +53,7 @@ export default function HomePage() {
 }
 
 async function FeaturedCoursesSection() {
+  await connection();
   const featuredCourses: Course[] = await getFeaturedCourses();
 
   return (
@@ -76,6 +78,7 @@ async function FeaturedCoursesSection() {
 }
 
 async function FeaturedProjectsSection() {
+  await connection();
   const featuredProjects: Project[] = await getFeaturedProjects();
 
   return (
