@@ -4,11 +4,8 @@ import CourseCard from "@/components/CourseCard";
 import Link from "next/link";
 import { Course, Project } from "@/lib/types";
 
-// Optional: Keep cache/revalidation clean for Next.js app router performance
-export const revalidate = 3600; // Revalidate every hour
-
 export default async function HomePage() {
-  // Fetch data safely without triggering request socket bailouts
+  // Fetch data safely for Next.js 16 / cacheComponents
   const [featuredCourses, featuredProjects]: [Course[], Project[]] =
     await Promise.all([getFeaturedCourses(), getFeaturedProjects()]);
 

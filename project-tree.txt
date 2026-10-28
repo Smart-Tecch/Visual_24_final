@@ -1,0 +1,89 @@
+﻿Project Tree - 2026-10-28 20:43
+Root: C:\Users\Admin\Desktop\my-workspace\Visual_24_final
+
+Visual_24_final
+├── .env.local
+├── .gitignore
+├── components.json
+├── eslint.config.mjs
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── pnpm-workspace.yaml
+├── project-tree.txt
+├── README.md
+├── tsconfig.json
+├── .vscode
+│   ├── settings.json
+│   └── tasks.json
+├── app
+│   ├── favicon.ico
+│   ├── global-error.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   ├── sitemap.ts
+│   ├── (public)
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── about
+│   │   │   └── page.tsx
+│   │   ├── admissions
+│   │   │   └── page.tsx
+│   │   ├── blog
+│   │   │   └── page.tsx
+│   │   ├── contact
+│   │   │   └── page.tsx
+│   │   ├── courses
+│   │   │   └── page.tsx
+│   │   └── projects
+│   │       ├── page.tsx
+│   │       └── [slug]
+│   ├── admin
+│   │   └── page.tsx
+│   └── api
+│       ├── contact
+│       ├── courses
+│       └── projects
+├── components
+│   ├── CourseCard.tsx
+│   ├── ExploreButton.tsx
+│   ├── Footer.tsx
+│   ├── LightRays.tsx
+│   ├── Navbar.tsx
+│   └── ui
+│       └── card.tsx
+├── lib
+│   ├── db.ts
+│   ├── actions
+│   │   ├── contact.actions.ts
+│   │   ├── course.actions.ts
+│   │   └── project.actions.ts
+│   └── models
+│       ├── ContactMessage.ts
+│       ├── Course.ts
+│       └── Project.ts
+├── public
+│   ├── googlef17b3180d990c7e1.html
+│   ├── data
+│   │   ├── footerdata.ts
+│   │   ├── navdata.ts
+│   │   └── projects.ts
+│   ├── icons
+│   │   ├── arrow-down.svg
+│   │   ├── audience.svg
+│   │   ├── calendar.svg
+│   │   ├── clock.svg
+│   │   ├── logo.png
+│   │   ├── mode.svg
+│   │   └── pin.svg
+│   └── images
+│       ├── event1.png
+│       ├── event2.png
+│       ├── event3.png
+│       ├── event4.png
+│       ├── event5.png
+│       ├── event6.png
+│       └── event-full.png
+└── scripts
+    └── seed.ts
