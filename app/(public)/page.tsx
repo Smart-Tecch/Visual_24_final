@@ -1,18 +1,16 @@
-import { connection } from "next/server";
 import { getFeaturedCourses } from "@/lib/actions/course.actions";
 import { getFeaturedProjects } from "@/lib/actions/project.actions";
 import CourseCard from "@/components/CourseCard";
 import Link from "next/link";
 import { Course, Project } from "@/lib/types";
 
-export default async function HomePage() {
-  // This makes the page dynamic (Next.js 15/16 way)
-  await connection();
+// Optional: Keep cache/revalidation clean for Next.js app router performance
+export const revalidate = 3600; // Revalidate every hour
 
-  const [featuredCourses, featuredProjects] = await Promise.all([
-    getFeaturedCourses(),
-    getFeaturedProjects(),
-  ]);
+export default async function HomePage() {
+  // Fetch data safely without triggering request socket bailouts
+  const [featuredCourses, featuredProjects]: [Course[], Project[]] =
+    await Promise.all([getFeaturedCourses(), getFeaturedProjects()]);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -47,8 +45,8 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredCourses.map((course) => (
-            <CourseCard key={course._id} course={course} />
+          {featuredCourses?.map((course: Course) => (
+            <CourseCard key={course._id.toString()} course={course} />
           ))}
         </div>
       </section>
@@ -68,9 +66,9 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredProjects.map((project) => (
+          {featuredProjects?.map((project: Project) => (
             <Link
-              key={project._id}
+              key={project._id.toString()}
               href={`/projects/${project.slug}`}
               className="group block bg-zinc-900 rounded-2xl overflow-hidden hover:ring-2 hover:ring-orange-500 transition"
             >
