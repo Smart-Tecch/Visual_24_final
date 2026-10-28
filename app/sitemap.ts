@@ -11,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     // Add other routes here as your site grows, e.g.:
-    // {
-    //   url: `${baseUrl}/about`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.8,
-    // },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

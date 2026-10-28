@@ -4,39 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { FaTiktok, FaYoutube, FaInstagram } from "react-icons/fa";
-
-const pages = [
-  { name: "Home", to: "/" },
-  { name: "About Us", to: "/about" },
-  { name: "Courses", to: "/courses" },
-  { name: "Projects", to: "/projects" },
-  { name: "Contact Us", to: "/contact" },
-];
-
-const socials = [
-  {
-    name: "Tiktok",
-    icon: FaTiktok,
-    to: "https://www.tiktok.com/@visual.techinical24?is_from_webapp=1&sender_device=pc",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    name: "Youtube",
-    icon: FaYoutube,
-    to: "https://youtube.com/@pixelmanagement-z1h?si=-Vx80ZqeChYrlxAm",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    name: "Instagram",
-    icon: FaInstagram,
-    to: "https://www.tiktok.com/@smarttechug29?is_from_webapp=1&sender_device=pc",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-];
+import { pages, socials } from "../public/data/navdata";
+import { FaTiktok, FaYoutube } from "react-icons/fa";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
@@ -74,10 +43,14 @@ const Navbar = () => {
 
         {/* Mobile Slide-out Sidebar (Controlled by isActive state) */}
         <aside
-          className={`absolute top-0 right-0 w-72 min-h-screen bg-dark-100 border-l border-border-dark flex flex-col p-6 transition-transform duration-300 lg:hidden z-40 overflow-hidden ${
-            isActive ? "translate-x-0" : "translate-x-full"
+          className={`absolute  top-0 right-0 w-72 min-h-screen bg-dark-100 border-l border-border-dark flex flex-col p-6 transition-transform duration-300 lg:hidden z-40 overflow-hidden ${
+            isActive ? "translate-x-0" : "translate-x-full hidden"
           }`}
         >
+          {/* {isActive && (
+            <div className="absolute top-0 left-0 right-0 w-full h-full bg-red-500"></div>
+          )} */}
+
           {/* Mobile Hamburger / Toggle Button */}
           <button
             onClick={() => setIsActive(!isActive)}

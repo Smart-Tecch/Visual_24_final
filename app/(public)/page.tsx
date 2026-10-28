@@ -1,5 +1,5 @@
 import ExploreButton from "@/components/ExploreButton";
-const projects = [1, 2, 3, 4];
+import { projectsData } from "../../public/data/projects";
 import { Card } from "@/components/ui/card";
 
 const page = () => {
@@ -20,7 +20,7 @@ const page = () => {
         <h3>Featured Courses</h3>
 
         <ul className="events">
-          {projects.map((course, i) => (
+          {projectsData.map((project, i) => (
             <Card key={i}>{}course</Card>
           ))}
         </ul>
