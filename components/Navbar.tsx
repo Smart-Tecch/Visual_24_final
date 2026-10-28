@@ -100,7 +100,7 @@ const Navbar = () => {
             ))}
           </section>
 
-          <section className="absolute bottom-0 left-0 right-0  flex flex-col p-6">
+          <section className="absolute bottom-0 left-0 right-0 h-[30%] flex flex-col p-6">
             <div className="socials flex flex-col">
               <p className="paragraph mb-3 tracking-widest">Find Us </p>
               <div className="flex items-center gap-3">
