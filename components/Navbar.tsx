@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { FaTiktok, FaYoutube, FaInstagram } from "react-icons/fa";
 
 const pages = [
   { name: "Home", to: "/" },
@@ -11,6 +12,30 @@ const pages = [
   { name: "Courses", to: "/courses" },
   { name: "Projects", to: "/projects" },
   { name: "Contact Us", to: "/contact" },
+];
+
+const socials = [
+  {
+    name: "Tiktok",
+    icon: FaTiktok,
+    to: "https://www.tiktok.com/@visual.techinical24?is_from_webapp=1&sender_device=pc",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "Youtube",
+    icon: FaYoutube,
+    to: "https://youtube.com/@pixelmanagement-z1h?si=-Vx80ZqeChYrlxAm",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "Instagram",
+    icon: FaInstagram,
+    to: "https://www.tiktok.com/@smarttechug29?is_from_webapp=1&sender_device=pc",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
 ];
 
 const Navbar = () => {
@@ -75,14 +100,38 @@ const Navbar = () => {
             ))}
           </section>
 
-          {/* <section className="mt-8">
-            <button
-              onClick={() => setIsActive(false)}
-              className="w-full bg-primary text-black py-2.5 rounded-[6px] font-semibold"
-            >
-              Click
-            </button>
-          </section> */}
+          <section className="absolute bottom-0 left-0 right-0  flex flex-col p-6">
+            <div className="socials flex flex-col">
+              <p className="paragraph mb-3 tracking-widest">Find Us </p>
+              <div className="flex items-center gap-3">
+                {socials.map((social) => {
+                  const IconComponent = social.icon;
+
+                  return (
+                    <span key={social.name}>
+                      <Link
+                        href={social.to}
+                        target={social.target}
+                        rel={social.rel}
+                      >
+                        {IconComponent === FaTiktok ? (
+                          <IconComponent className="social-icon text-black" />
+                        ) : IconComponent === FaYoutube ? (
+                          <IconComponent className="social-icon text-red-600" />
+                        ) : (
+                          <IconComponent className="social-icon text-pink-700" />
+                        )}
+                      </Link>
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="contacts mt-3">
+              <p className="paragraph mb-3 tracking-widest">Contacts</p>
+            </div>
+          </section>
         </aside>
       </nav>
     </header>
