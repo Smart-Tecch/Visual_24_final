@@ -23,12 +23,15 @@ export async function createContactMessage(formData: FormData) {
     await ContactMessage.create({
       name,
       phone,
-      email,
-      courseInterest,
+      email: email || undefined,
+      courseInterest: courseInterest || undefined,
       message,
     });
 
-    return { success: true, message: "Message sent successfully!" };
+    return {
+      success: true,
+      message: "Message sent successfully! We will contact you soon.",
+    };
   } catch (error) {
     console.error("Error creating contact message:", error);
     return {
