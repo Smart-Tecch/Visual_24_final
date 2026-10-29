@@ -15,7 +15,7 @@ const martianMono = Martian_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Visual 24",
+  title: "Visual 24 Technical Institute",
   description: "A IT & Creative skills school.",
   verification: {
     google: "googlef17b3180d990c7e1",
