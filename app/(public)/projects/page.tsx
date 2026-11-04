@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
 import Image from "next/image";
@@ -12,6 +13,11 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "Student work",
+  description: "Published student projects from Visual 24 Technical Institute.",
+};
 
 export default function ProjectsPage() {
   return (

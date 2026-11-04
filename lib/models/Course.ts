@@ -36,6 +36,10 @@ const CourseSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    hidden: {
+      type: Boolean,
+      default: false,
+    },
     order: {
       type: Number,
       default: 0,

@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["mongoose"],
   experimental: {
     agentFeedback: true,
-    turbopackFileSystemCacheForDev: true,
+    turbopackFileSystemCacheForDev: false,
   },
   cacheComponents: true,
   partialPrefetching: true,

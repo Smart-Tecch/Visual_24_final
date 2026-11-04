@@ -2,12 +2,11 @@ import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { socials } from "@/public/data/footerdata";
 import { buttonVariants } from "@/components/ui/button";
-import { getSiteSettings } from "@/lib/actions/settings.actions";
-import { formatAddress } from "@/lib/school-data";
+import { formatAddress, schoolData } from "@/lib/school-data";
+import { whatsappHref } from "@/lib/phone";
 
-const Footer = async () => {
-  const settings = await getSiteSettings();
-  const { school } = settings;
+const Footer = () => {
+  const { school } = schoolData;
   const email = school.contacts.email;
   const contacts = school.contacts as {
     phones?: string[];
@@ -83,7 +82,7 @@ const Footer = async () => {
             <p>
               <a
                 className="inline-flex items-center gap-2 hover:text-primary"
-                href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
+                href={whatsappHref(whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
               >

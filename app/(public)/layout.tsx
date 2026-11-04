@@ -1,11 +1,14 @@
 import React, { Suspense } from "react";
+import { connection } from "next/server";
 import Navbar from "@/components/Navbar";
 import NavbarFallback from "@/components/NavbarFallback";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { getPublishedProjectCount } from "@/lib/actions/project.actions";
 import { getSiteSettings } from "@/lib/actions/settings.actions";
 
 async function NavWithSettings() {
+  await connection();
   const [projectCount, settings] = await Promise.all([
     getPublishedProjectCount(),
     getSiteSettings(),
@@ -23,8 +26,6 @@ function NavFallback() {
   return <NavbarFallback />;
 }
 
-import WhatsAppButton from "@/components/WhatsAppButton";
-
 const layout = ({
   children,
 }: Readonly<{
@@ -36,15 +37,7 @@ const layout = ({
         <NavWithSettings />
       </Suspense>
       {children}
-      <Suspense
-        fallback={
-          <footer className="bg-dark-100 py-10 text-center text-sm text-white/50">
-            Loading…
-          </footer>
-        }
-      >
-        <Footer />
-      </Suspense>
+      <Footer />
       <WhatsAppButton />
     </>
   );

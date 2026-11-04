@@ -1,5 +1,6 @@
 import dbConnect from "@/lib/db";
 import SiteSettings from "@/lib/models/SiteSettings";
+import { rethrowNext } from "@/lib/next-errors";
 import { schoolData } from "@/lib/school-data";
 import type { SiteSettings as SiteSettingsType } from "@/lib/types";
 
@@ -24,6 +25,7 @@ export async function findSiteSettings(): Promise<SiteSettingsType> {
     if (!doc) return jsonFallback;
     return serialize(doc);
   } catch (error) {
+    rethrowNext(error);
     console.error("Error fetching site settings:", error);
     return jsonFallback;
   }

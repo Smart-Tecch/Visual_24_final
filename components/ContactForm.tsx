@@ -5,8 +5,9 @@ import { createContactMessage } from "@/lib/actions/contact.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import type { Course } from "@/lib/types";
 
-export default function ContactForm() {
+export default function ContactForm({ courses = [] }: { courses?: Course[] }) {
   const [status, setStatus] = useState<{
     success: boolean;
     message: string;
@@ -22,7 +23,15 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={onSubmit} className="flex flex-col gap-5">
+    <form action={onSubmit} className="relative flex flex-col gap-5">
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+      />
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-2 text-sm font-medium">
           Name
@@ -44,11 +53,27 @@ export default function ContactForm() {
       </label>
       <label className="flex flex-col gap-2 text-sm font-medium">
         Course of interest
-        <Input
-          name="courseInterest"
-          placeholder="Web design, coding, computer studies…"
-          className="h-11"
-        />
+        {courses.length > 0 ? (
+          <select
+            name="courseInterest"
+            className="h-11 rounded-md border border-border bg-background px-3"
+            defaultValue=""
+          >
+            <option value="">Not sure yet</option>
+            {courses.map((course) => (
+              <option key={course.slug} value={course.title}>
+                {course.title}
+                {course.status === "coming-soon" ? " (coming soon)" : ""}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <Input
+            name="courseInterest"
+            placeholder="Web design, coding, computer studies…"
+            className="h-11"
+          />
+        )}
       </label>
       <label className="flex flex-col gap-2 text-sm font-medium">
         Message

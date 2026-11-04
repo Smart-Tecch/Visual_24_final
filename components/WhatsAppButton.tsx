@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { schoolData } from "@/lib/school-data";
+import { whatsappHref } from "@/lib/phone";
 
 export default function WhatsAppButton() {
   const whatsapp = schoolData.school.contacts.whatsapp as string | null;
   if (!whatsapp) return null;
 
-  const href = `https://wa.me/${whatsapp.replace(/\D/g, "")}`;
+  const href = whatsappHref(whatsapp);
 
   return (
     <Link

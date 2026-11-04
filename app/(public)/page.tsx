@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
 import Image from "next/image";
@@ -5,11 +6,8 @@ import Link from "next/link";
 import { getFeaturedCourses } from "@/lib/actions/course.actions";
 import { getFeaturedProjects } from "@/lib/actions/project.actions";
 import CourseCard from "@/components/CourseCard";
-import { Course, Project } from "@/lib/types";
-import {
-  coursesFromSchoolData,
-  schoolData,
-} from "@/lib/school-data";
+import { Project } from "@/lib/types";
+import { schoolData } from "@/lib/school-data";
 import { mediaForProject, studioCategories, siteImages } from "@/lib/site-content";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -19,6 +17,13 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: schoolData.seo.defaultTitle,
+  },
+  description: schoolData.seo.description,
+};
 
 export default function HomePage() {
   const home = schoolData.pages.home;
@@ -216,13 +221,7 @@ export default function HomePage() {
 
 async function FeaturedCoursesSection() {
   await connection();
-  const fromDb: Course[] = await getFeaturedCourses();
-  const featuredCourses =
-    fromDb.length > 0
-      ? fromDb
-      : coursesFromSchoolData().filter(
-          (course) => course.featured && course.status === "active",
-        );
+  const featuredCourses = await getFeaturedCourses();
 
   return (
     <section className="px-5 py-20 sm:px-8">
@@ -250,7 +249,7 @@ async function FeaturedCoursesSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredCourses.map((course) => (
-            <CourseCard key={course._id.toString()} course={course} />
+            <CourseCard key={course.slug} course={course} />
           ))}
         </div>
       </div>

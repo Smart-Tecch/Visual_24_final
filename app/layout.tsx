@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 import { schoolData } from "@/lib/school-data";
+import { educationalOrganizationJsonLd, siteUrl } from "@/lib/seo";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -15,8 +16,6 @@ const martianMono = Martian_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = `https://${schoolData.school.domain ?? "visual-24-technical-institute.vercel.app"}`;
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -24,6 +23,14 @@ export const metadata: Metadata = {
     template: schoolData.seo.titleTemplate,
   },
   description: schoolData.seo.description,
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: schoolData.school.name,
+    title: schoolData.seo.defaultTitle,
+    description: schoolData.seo.description,
+    images: ["/images/hero/home-hero.webp"],
+  },
   icons: {
     icon: "/images/logos/favicon.webp",
     apple: "/images/logos/logo-main.webp",
@@ -50,6 +57,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
           suppressHydrationWarning
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(educationalOrganizationJsonLd()),
+          }}
         />
       </head>
       <body className="min-h-screen bg-background font-sans text-foreground">

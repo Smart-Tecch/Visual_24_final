@@ -2,13 +2,35 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import Link from "next/link";
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import { getCourseBySlug } from "@/lib/actions/course.actions";
+import {
+  getCourseBySlug,
+  getOpenIntakeForCourse,
+} from "@/lib/actions/course.actions";
+import { getSiteSettings } from "@/lib/actions/settings.actions";
 import { mediaForCourse } from "@/lib/site-content";
-import { coursesFromSchoolData } from "@/lib/school-data";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Course } from "@/lib/types";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const course = await getCourseBySlug(slug);
+  if (!course) return { title: "Course" };
+  return {
+    title: course.title,
+    description: course.summary,
+    openGraph: {
+      title: course.title,
+      description: course.summary,
+    },
+  };
+}
 
 export default function CourseDetailPage({
   params,
@@ -35,18 +57,42 @@ async function CourseDetailContent({
 }) {
   await connection();
   const { slug } = await params;
-  const fromDb = await getCourseBySlug(slug);
-  const course =
-    fromDb || coursesFromSchoolData().find((item) => item.slug === slug) || null;
+  const course = await getCourseBySlug(slug);
 
   if (!course) notFound();
 
-  return <CourseDetailView course={course} />;
+  const [settings, intake] = await Promise.all([
+    getSiteSettings(),
+    getOpenIntakeForCourse(course._id),
+  ]);
+
+  return (
+    <CourseDetailView
+      course={course}
+      showFee={Boolean(settings.showFees && course.fee)}
+      nextIntake={
+        intake
+          ? new Date(intake.startDate).toLocaleDateString("en-UG", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          : null
+      }
+    />
+  );
 }
 
-function CourseDetailView({ course }: { course: Course }) {
+function CourseDetailView({
+  course,
+  showFee,
+  nextIntake,
+}: {
+  course: Course;
+  showFee: boolean;
+  nextIntake: string | null;
+}) {
   const comingSoon = course.status === "coming-soon";
-  const showFee = false;
 
   return (
     <div>
@@ -70,6 +116,12 @@ function CourseDetailView({ course }: { course: Course }) {
             </Badge>
           ) : null}
         </div>
+
+        {nextIntake ? (
+          <p className="mb-8 text-muted-foreground">
+            Next intake: <span className="font-medium text-foreground">{nextIntake}</span>
+          </p>
+        ) : null}
 
         {course.outline && course.outline.length > 0 ? (
           <div className="mb-10">
@@ -99,7 +151,7 @@ function CourseDetailView({ course }: { course: Course }) {
             </Link>
           ) : (
             <Link
-              href="/admissions"
+              href={`/admissions?course=${course.slug}`}
               className={buttonVariants({
                 variant: "accent",
                 className: "h-11 px-6",

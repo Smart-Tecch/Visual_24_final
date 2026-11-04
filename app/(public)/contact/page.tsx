@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import { connection } from "next/server";
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,8 +11,16 @@ import {
 } from "@/lib/school-data";
 import { siteImages } from "@/lib/site-content";
 import { socials } from "@/public/data/footerdata";
+import { getCourses } from "@/lib/actions/course.actions";
+import { whatsappHref } from "@/lib/phone";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Ask about a Visual 24 course, a visit day, or how to apply. We reply personally.",
+};
 
 export default function ContactPage() {
   const { contacts } = schoolData.school;
@@ -34,7 +45,9 @@ export default function ContactPage() {
             <p className="mt-2 mb-8 text-sm text-muted-foreground">
               Name, phone and a short note are enough to start.
             </p>
-            <ContactForm />
+            <Suspense fallback={<p className="text-muted-foreground">Loading form…</p>}>
+              <ContactFormWithCourses />
+            </Suspense>
           </CardContent>
         </Card>
         <div className="flex flex-col justify-center gap-6">
@@ -80,7 +93,7 @@ export default function ContactPage() {
             <div>
               <p className="kicker text-muted-foreground">WhatsApp</p>
               <a
-                href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
+                href={whatsappHref(whatsapp)}
                 className="mt-2 inline-flex items-center gap-2 text-lg underline underline-offset-4"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -110,4 +123,10 @@ export default function ContactPage() {
       </section>
     </div>
   );
+}
+
+async function ContactFormWithCourses() {
+  await connection();
+  const courses = await getCourses();
+  return <ContactForm courses={courses} />;
 }

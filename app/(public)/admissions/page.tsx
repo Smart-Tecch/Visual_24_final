@@ -1,10 +1,23 @@
-import Link from "next/link";
+import { Suspense } from "react";
+import { connection } from "next/server";
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import ApplicationForm from "@/components/ApplicationForm";
 import { admissionSteps, siteImages } from "@/lib/site-content";
-import { buttonVariants } from "@/components/ui/button";
+import { getCourses } from "@/lib/actions/course.actions";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
-export default function AdmissionsPage() {
+export const metadata: Metadata = {
+  title: "Admissions",
+  description:
+    "Visit Visual 24 Technical Institute, then apply for a technical or creative course.",
+};
+
+export default function AdmissionsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ course?: string }>;
+}) {
   return (
     <div>
       <PageHero
@@ -26,24 +39,45 @@ export default function AdmissionsPage() {
             </Card>
           ))}
         </div>
-        <div className="mt-12 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className={buttonVariants({ className: "h-11 px-6" })}
-          >
-            Inquire
-          </Link>
-          <Link
-            href="/contact"
-            className={buttonVariants({
-              variant: "outline",
-              className: "h-11 px-6",
-            })}
-          >
-            Apply
-          </Link>
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+          <div>
+            <p className="kicker text-muted-foreground">Apply</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+              Short application
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Coming-soon courses have no apply button. Choose an active course
+              and we will follow up about a visit day.
+            </p>
+          </div>
+          <Card>
+            <CardContent className="pt-2">
+              <Suspense
+                fallback={
+                  <p className="text-muted-foreground">Loading form…</p>
+                }
+              >
+                <ApplicationSection searchParams={searchParams} />
+              </Suspense>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
+  );
+}
+
+async function ApplicationSection({
+  searchParams,
+}: {
+  searchParams: Promise<{ course?: string }>;
+}) {
+  await connection();
+  const [{ course }, courses] = await Promise.all([
+    searchParams,
+    getCourses(),
+  ]);
+  return (
+    <ApplicationForm courses={courses} defaultCourseSlug={course} />
   );
 }

@@ -45,6 +45,12 @@ export default async function AdminPanelLayout({
             >
               Applications
             </Link>
+            <Link
+              href="/admin/projects"
+              className="underline-offset-4 hover:underline"
+            >
+              Projects
+            </Link>
             <Link href="/" className="underline-offset-4 hover:underline">
               View site
             </Link>

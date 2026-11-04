@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
@@ -9,6 +10,12 @@ import {
 } from "@/lib/site-content";
 import { schoolData } from "@/lib/school-data";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Mission, studio code and the people behind Visual 24 Technical Institute in Kasenge, Uganda.",
+};
 
 export default function AboutPage() {
   const about = schoolData.pages.about;

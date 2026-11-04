@@ -2,6 +2,7 @@
 
 import dbConnect from "@/lib/db";
 import Project from "@/lib/models/Project";
+import { rethrowNext } from "@/lib/next-errors";
 import { Project as ProjectType } from "@/lib/types";
 
 function serialize<T>(doc: unknown): T {
@@ -16,6 +17,7 @@ export async function getProjects(): Promise<ProjectType[]> {
       .lean();
     return serialize(projects);
   } catch (error) {
+    rethrowNext(error);
     console.error("Error fetching projects:", error);
     return [];
   }
@@ -29,6 +31,7 @@ export async function getFeaturedProjects(): Promise<ProjectType[]> {
       .lean();
     return serialize(projects);
   } catch (error) {
+    rethrowNext(error);
     console.error("Error fetching featured projects:", error);
     return [];
   }
@@ -39,7 +42,7 @@ export async function getPublishedProjectCount(): Promise<number> {
     await dbConnect();
     return Project.countDocuments({ published: true });
   } catch (error) {
-    console.error("Error counting projects:", error);
+    rethrowNext(error);
     return 0;
   }
 }
@@ -54,6 +57,7 @@ export async function getProjectBySlug(
       .lean();
     return project ? serialize(project) : null;
   } catch (error) {
+    rethrowNext(error);
     console.error("Error fetching project:", error);
     return null;
   }

@@ -8,6 +8,7 @@ export interface Course {
   level?: "Beginner" | "Intermediate" | "Advanced";
   status: "active" | "coming-soon";
   featured: boolean;
+  hidden?: boolean;
   order: number;
   outline?: string[];
   fee?: number;

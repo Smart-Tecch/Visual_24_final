@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { siteImages } from "@/lib/site-content";
+
+export const metadata: Metadata = {
+  title: "Journal",
+  description: "Studio notes from Visual 24 Technical Institute will appear here when published.",
+};
 
 export default function BlogPage() {
   return (
