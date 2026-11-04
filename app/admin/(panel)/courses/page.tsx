@@ -104,7 +104,7 @@ export default async function AdminCoursesPage() {
               name="status"
               className="mt-1 h-11 w-full rounded-md border border-border bg-background px-3"
             >
-              <option value="active">Active</option>
+              <option value="available">Available</option>
               <option value="coming-soon">Coming soon</option>
             </select>
           </label>
@@ -185,7 +185,7 @@ export default async function AdminCoursesPage() {
                       defaultValue={course.status}
                       className="mt-1 h-11 w-full rounded-md border border-border bg-background px-3"
                     >
-                      <option value="active">Active</option>
+                      <option value="available">Available</option>
                       <option value="coming-soon">Coming soon</option>
                     </select>
                   </label>

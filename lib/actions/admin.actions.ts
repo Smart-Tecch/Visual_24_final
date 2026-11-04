@@ -29,7 +29,7 @@ export async function updateCourseFromAdmin(formData: FormData) {
   const category = String(formData.get("category") || "");
   const level = String(formData.get("level") || "Beginner");
   const duration = String(formData.get("duration") || "").trim();
-  const status = String(formData.get("status") || "active");
+  const status = String(formData.get("status") || "available");
   const featured = formData.get("featured") === "on";
   const hidden = formData.get("hidden") === "on";
   const order = Number(formData.get("order") || 0);
@@ -67,7 +67,7 @@ export async function createCourseFromAdmin(formData: FormData) {
   const category = String(formData.get("category") || "technical");
   const level = String(formData.get("level") || "Beginner");
   const duration = String(formData.get("duration") || "").trim();
-  const status = String(formData.get("status") || "active");
+  const status = String(formData.get("status") || "available");
   const featured = formData.get("featured") === "on";
   const order = Number(formData.get("order") || 99);
   const slugInput = String(formData.get("slug") || "").trim();

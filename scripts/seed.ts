@@ -18,6 +18,7 @@ type SeedFile = {
     duration: string | null;
     status: string;
     featured: boolean;
+    hidden?: boolean;
     order: number;
     summary: string;
     outline?: string[];
@@ -50,8 +51,13 @@ async function seed() {
           category: course.category,
           level: course.level,
           duration: course.duration ?? undefined,
-          status: course.status,
-          featured: course.featured,
+          status:
+            course.status === "coming-soon" ? "coming-soon" : "available",
+          featured:
+            course.status === "coming-soon" || course.hidden
+              ? false
+              : course.featured,
+          hidden: Boolean(course.hidden),
           order: course.order,
           summary: course.summary,
           outline: course.outline ?? [],

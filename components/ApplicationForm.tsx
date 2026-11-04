@@ -5,6 +5,7 @@ import { createApplication } from "@/lib/actions/application.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { isAvailable } from "@/lib/course-status";
 import type { Course } from "@/lib/types";
 
 export default function ApplicationForm({
@@ -19,7 +20,7 @@ export default function ApplicationForm({
     message: string;
   } | null>(null);
   const [pending, setPending] = useState(false);
-  const openCourses = courses.filter((course) => course.status === "active");
+  const openCourses = courses.filter((course) => isAvailable(course.status));
   const selectedSlug = openCourses.some((course) => course.slug === defaultCourseSlug)
     ? defaultCourseSlug
     : openCourses[0]?.slug;

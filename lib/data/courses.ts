@@ -3,6 +3,7 @@ import Course from "@/lib/models/Course";
 import Intake from "@/lib/models/Intake";
 import { serialize } from "@/lib/serialize";
 import { rethrowNext } from "@/lib/next-errors";
+import { isAvailable } from "@/lib/course-status";
 import { categoryOrder, coursesFromSchoolData } from "@/lib/school-data";
 import type { Course as CourseType } from "@/lib/types";
 
@@ -46,13 +47,13 @@ export async function findPublicCourses(): Promise<CourseType[]> {
   return sortPublic(coursesFromSchoolData().filter(isVisible));
 }
 
-/** Featured on home: active courses only (not coming-soon, not hidden). */
+/** Featured on home: available courses only (not coming-soon, not hidden). */
 export async function findFeaturedCourses(): Promise<CourseType[]> {
   try {
     await dbConnect();
     const courses = await Course.find({
       featured: true,
-      status: "active",
+      status: { $in: ["available", "active"] },
       hidden: { $ne: true },
     })
       .sort({ order: 1 })
@@ -65,7 +66,8 @@ export async function findFeaturedCourses(): Promise<CourseType[]> {
   }
   return sortPublic(
     coursesFromSchoolData().filter(
-      (course) => course.featured && course.status === "active" && isVisible(course),
+      (course) =>
+        course.featured && isAvailable(course.status) && isVisible(course),
     ),
   );
 }

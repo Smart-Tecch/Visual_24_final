@@ -133,10 +133,10 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
               <div className="px-6 pt-4">
                 <ThemeToggle overlay />
               </div>
-              <div className="flex flex-col gap-1 px-6 pt-6">
+              <div className="flex flex-col gap-0 px-6 pt-6">
                 <Link
                   href="/"
-                  className="py-3 text-3xl font-semibold tracking-tight hover:text-primary"
+                  className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight hover:text-primary sm:text-[1.875rem]"
                 >
                   Home
                 </Link>
@@ -144,7 +144,7 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                   <Link
                     key={page.name}
                     href={page.to}
-                    className="py-3 text-3xl font-semibold tracking-tight hover:text-primary"
+                    className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight hover:text-primary sm:text-[1.875rem]"
                   >
                     {page.name}
                   </Link>

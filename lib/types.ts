@@ -6,7 +6,7 @@ export interface Course {
   summary: string;
   duration?: string;
   level?: "Beginner" | "Intermediate" | "Advanced";
-  status: "active" | "coming-soon";
+  status: "available" | "coming-soon" | "active";
   featured: boolean;
   hidden?: boolean;
   order: number;

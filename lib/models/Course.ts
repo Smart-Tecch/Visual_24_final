@@ -29,8 +29,8 @@ const CourseSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["active", "coming-soon"],
-      default: "active",
+      enum: ["available", "coming-soon", "active"],
+      default: "available",
     },
     featured: {
       type: Boolean,

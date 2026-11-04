@@ -37,6 +37,7 @@ export function coursesFromSchoolData(): Course[] {
     category: course.category as Course["category"],
     status: course.status as Course["status"],
     featured: course.featured,
+    hidden: Boolean((course as { hidden?: boolean }).hidden),
     order: course.order,
     outline: course.outline?.length ? course.outline : undefined,
     fee: course.fee ?? undefined,

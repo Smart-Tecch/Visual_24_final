@@ -12,6 +12,7 @@ import { getSiteSettings } from "@/lib/actions/settings.actions";
 import { mediaForCourse } from "@/lib/site-content";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { isComingSoon } from "@/lib/course-status";
 import type { Course } from "@/lib/types";
 
 export async function generateMetadata({
@@ -92,7 +93,7 @@ function CourseDetailView({
   showFee: boolean;
   nextIntake: string | null;
 }) {
-  const comingSoon = course.status === "coming-soon";
+  const comingSoon = isComingSoon(course.status);
 
   return (
     <div>
@@ -105,11 +106,22 @@ function CourseDetailView({
       />
       <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
         <div className="mb-6 flex flex-wrap gap-2">
-          {comingSoon ? <Badge>Coming soon</Badge> : null}
-          {course.duration ? (
-            <Badge variant="secondary">{course.duration}</Badge>
+          {comingSoon ? (
+            <Badge variant="comingSoon">Coming soon</Badge>
+          ) : course.level ? (
+            <Badge
+              variant={
+                course.level === "Intermediate" ? "intermediate" : "beginner"
+              }
+            >
+              {course.level}
+            </Badge>
           ) : null}
-          {course.level ? <Badge variant="outline">{course.level}</Badge> : null}
+          {!comingSoon && course.duration ? (
+            <span className="text-sm text-muted-foreground">
+              {course.duration}
+            </span>
+          ) : null}
           {showFee ? (
             <Badge variant="secondary">
               Fee: UGX {course.fee?.toLocaleString()}

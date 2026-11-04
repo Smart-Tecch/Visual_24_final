@@ -51,7 +51,7 @@ export async function createApplication(formData: FormData) {
       hidden: { $ne: true },
     });
 
-    if (!course || course.status === "coming-soon") {
+    if (!course || course.status === "coming-soon" || course.hidden) {
       return {
         success: false,
         message: "That course is not open for applications yet.",
