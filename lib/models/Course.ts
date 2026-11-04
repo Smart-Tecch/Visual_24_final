@@ -12,32 +12,50 @@ const CourseSchema = new Schema(
       required: true,
       unique: true,
       lowercase: true,
+      index: true,
     },
-    shortDescription: {
+    category: {
       type: String,
       required: true,
-    },
-    fullDescription: {
-      type: String,
-    },
-    duration: {
-      type: String, // e.g. "3 Months"
+      enum: ["technical", "creative", "business"],
     },
     level: {
       type: String,
       enum: ["Beginner", "Intermediate", "Advanced"],
       default: "Beginner",
     },
-    image: {
-      type: String, // Cloudinary URL later
+    duration: {
+      type: String,
     },
-    isFeatured: {
+    status: {
+      type: String,
+      enum: ["active", "coming-soon"],
+      default: "active",
+    },
+    featured: {
       type: Boolean,
       default: false,
     },
     order: {
       type: Number,
       default: 0,
+    },
+    summary: {
+      type: String,
+      required: true,
+    },
+    outline: {
+      type: [String],
+      default: [],
+    },
+    fee: {
+      type: Number,
+    },
+    instructor: {
+      type: String,
+    },
+    image: {
+      type: String,
     },
   },
   {

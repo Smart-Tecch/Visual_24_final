@@ -6,7 +6,6 @@ interface MongooseCache {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var mongoose: MongooseCache;
 }
 
@@ -17,6 +16,15 @@ if (!cached) {
 }
 
 async function dbConnect() {
+  // Mongoose stamps documents with new Date(). With Cache Components enabled,
+  // that throws during prerender. connection() tells Next this render must
+  // wait until the request, so the query is allowed. The seed script does not
+  // set NEXT_RUNTIME, so it skips this and still connects normally.
+  if (process.env.NEXT_RUNTIME) {
+    const { connection } = await import("next/server");
+    await connection();
+  }
+
   const MONGODB_URI = process.env.MONGODB_URI;
 
   if (!MONGODB_URI) {

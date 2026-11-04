@@ -1,0 +1,251 @@
+VISUAL 24 TECHNICAL INSTITUTE - SCHOOL INFORMATION
+===================================================
+This file holds facts only (no layout, no features). Cursor: read it as the source of truth for every name, number, link and credit on the site.
+Rules for whoever reads this:
+- Lines marked [FILL] are not known yet. Do not invent them. Hide any part of the site that depends on them.
+- Lines marked [CONFIRM] are guesses that the owner must check before they go public.
+- Write NONE if something does not exist. Write LATER if it will exist but is not ready.
+- Do not put passwords, PINs or ID numbers in this file.
+
+
+1. IDENTITY
+-----------
+School name: Visual 24 Technical Institute
+Short name: Visual 24 Technical 
+Motto: Your Talent, Our Training
+Tagline: Empowering creative minds with practical skills, industry experience, and modern technology to build successful careers.
+Year started: 2026
+Registration or licence (body and number, or NONE): None
+Legal or business name, if different: Visual Power Systems
+
+
+2. LOCATION
+-----------
+Address line 1: Nakawuka Road Kasenge
+Address line 2: Next to "Voice of Kasenge" Local Radio Station
+Area: Kasenge
+Country: Uganda
+Google Maps link: [FILL]
+Landmark or directions: Opposite Tukutuku Stage
+Opening days and hours: 12hours open and work 7days a week
+
+
+3. CONTACTS
+-----------
+Phone (calls): [0759443764, 0744953288, 0741653226]
+WhatsApp: They're all at wattsapp but use "0741653226" for whatsapp and add a logo of whtsapp that takes one direct to the whatsapp app
+Email: visual24technical@gmail.com
+Email for applications (if different): same
+Website domain: visual-24-technical-institute.vercel.app
+
+
+4. SOCIAL MEDIA
+---------------
+TikTok 1: https://www.tiktok.com/@visual.techinical24
+YouTube: https://youtube.com/@pixelmanagement-z1h
+Facebook: [FILL]
+Instagram: [FILL]
+X (Twitter): [FILL]
+LinkedIn: [FILL]
+Other: [FILL]
+Which accounts belong to the school and which are personal or other brands: [FILL]
+
+
+5. FOUNDERS AND TEAM
+--------------------
+For each person copy this block. Add as many as needed.
+
+Person 1
+  Full name: [Mukalazi Abdul-Noor Miqdaad]
+  Role / title (for example Founder, Lead Instructor): Founder
+  Courses taught: Microsoft Office Suite/ Setup, Web-designing
+  Short bio (2 lines): we'll add this later
+  Photo file in the reference folder: Skip for now but leave space for it
+  Show on website? (yes/no): Yes
+  Social link: https://www.tiktok.com/@al.muqudaad?is_from_webapp=1&sender_device=pc
+
+Person 2
+  Full name: [Mugejera Frank]
+  Role / title: Graphic Designer, Editor, Producer
+  Courses taught: Graphic Designing, Video Editing, Music Production
+  Short bio (2 lines): we'll add this later
+  Photo file in the reference folder: do the same 
+  Show on website? (yes/no): yes
+  Social link: https://www.tiktok.com/@frank.picson?is_from_webapp=1&sender_device=pc
+
+Person 3
+  Full name: [Ssebuuma Mesach]
+  Role / title: Web-Designer, Programmer, Web-Developer, Software Engineer
+  Courses taught: Web development, Programming, add more related not more than 5
+  Short bio (2 lines): later
+  Photo file in the reference folder: same 
+  Show on website? (yes/no): yes
+  Social link: https://www.tiktok.com/@smarttechug29?is_from_webapp=1&sender_device=pc
+
+
+6. SPONSORS, PARTNERS AND COMPANIES
+-----------------------------------
+For each one copy this block.
+
+Company 1
+  Name: T24 Tours and travel
+  Relationship (sponsor / partner / client / supplier / hiring partner): Partner
+  What they provide or did (equipment, funding, training, jobs): Funding
+  Website or social link: https://www.tiktok.com/@frank.picson?is_from_webapp=1&sender_device=pc
+  Logo file in the reference folder: logo provided in sponsers
+  Permission to show their name and logo? (yes/no): yes
+
+Company 2
+  Name: Dzionz Youth Center
+  Relationship: Partner
+  What they provide or did: Jobs
+  Website or social link: https://www.tiktok.com/@dzionzyouthcenter?is_from_webapp=1&sender_device=pc
+  Logo file in the reference folder: provided in sponsers dir and with kids wer
+  Permission to show their name and logo? (yes/no): Yes
+
+Company 3
+  Name: [FILL]
+  Relationship: [FILL]
+  What they provide or did: [FILL]
+  Website or social link: [FILL]
+  Logo file in the reference folder: [FILL]
+  Permission to show their name and logo? (yes/no): [FILL]
+
+
+7. COURSES
+----------
+Format: name | level | duration | status | fee in UGX | days and times | who teaches
+
+Web Design & Development | Intermediate | 4 Months | active | 500000 | 5days and 4hours each day a weeek | [FILL]
+Coding & Programming | Beginner | 2monts | active | 300000 | same | [FILL]
+Computer Studies | Beginner | 1.5 Months | active | 300000 | same | [FILL]
+Multimedia Training | Beginner | [FILL] | active | [FILL] | [FILL] | [FILL]
+Graphic Design | Beginner | 3 Months | active | [FILL] | [FILL] | [FILL]
+Photography | Beginner | 2 Months | active | [FILL] | [FILL] | [FILL]
+Digital Marketing | Beginner | 2 Months | active | [FILL] | [FILL] | [FILL]
+Music Production | Beginner | 3 Months | [CONFIRM] | [FILL] | [FILL] | [FILL]
+Videography | Beginner | 2 Months | coming soon [CONFIRM] | [FILL] | [FILL] | [FILL]
+Film Production | Beginner | 3 Months | coming soon (equipment not yet bought) | [FILL] | [FILL] | [FILL]
+
+Courses to add or remove: [FILL]
+Certificate given and by whom: [Visual 24 Technical Institute]
+Entry requirements (age, education, own laptop): [10years, all levels, not a factor]
+
+
+8. ADMISSIONS
+-------------
+Next intake start date(s): [FILL]
+Seats per course: [FILL]
+Registration fee (UGX): [FILL]
+Payment methods and account names (no PINs): [FILL]
+Instalments allowed? How: [FILL]
+Discounts: [FILL]
+Show fees publicly? (yes/no): [FILL]
+
+
+9. FACTS AND NUMBERS (only true ones)
+-------------------------------------
+Number of students trained so far: skip for now
+Number of instructors: 10
+Number of computers or workstations: [15]
+Equipment and facilities available today: [We'll add later]
+Other true numbers worth showing: [later but leave space]
+
+
+10. STUDENT WORK AND TESTIMONIALS
+---------------------------------
+Student work to show (title, student names, course, file name in the reference folder):
+  [FILL] well add later but leave space 
+Testimonials (person's name, what they said, permission to publish yes/no):
+  [FILL] later but leave space
+Permission to publish photos of students (yes/no; for anyone under 18, a parent or guardian must agree): [FILL]
+
+
+11. REFERENCE IMAGE FOLDER
+--------------------------
+Location: reference/ in the project root.
+The folder names are categories. Cursor must read the folder names and file names itself and match each folder to the right part of the site.
+For each folder, fill in what it contains, if the name is not obvious:
+
+Folder name: [FILL]  | what it shows: [FILL]  | people named in it: [FILL]  | allowed to publish: [FILL]
+Folder name: [FILL]  | what it shows: [FILL]  | people named in it: [FILL]  | allowed to publish: [FILL]
+Folder name: [FILL]  | what it shows: [FILL]  | people named in it: [FILL]  | allowed to publish: [FILL]
+
+everything included and welll labelled
+
+Logo file: [file_0000000002188210bc2988c9eb78837a.png]
+Brand colors (hex codes): [Source: the two colors in the Visual 24 logo (deep navy and crimson red on white, with a film reel and a play button inside the 4). The two hex values below were estimated by eye from the logo image. If you have the original logo file, check them with a color picker and correct the two BRAND lines; everything else is derived from them.
+, 
+
+
+BRAND (same in both modes)
+  brand-navy: #0B1F4B
+  brand-red: #A30F28
+ 
+LIGHT MODE
+  background: #FFFFFF
+  surface (cards, sections): #F5F7FB
+  surface-alt (stripes, footer): #E9EEF8
+  border: #D5DDEC
+  text: #101A33
+  text-muted: #4B5878
+  primary (buttons, headings, links): #0B1F4B
+  primary-hover: #163273
+  on-primary (text on primary): #FFFFFF
+  accent (Apply button, highlights): #A30F28
+  accent-hover: #820C20
+  on-accent: #FFFFFF
+  focus-ring: #3B6FE0
+  success: #1F8A4C
+  warning: #B7791F
+  error: #B42318
+ 
+DARK MODE
+  background: #0A1020
+  surface (cards, sections): #111A33
+  surface-alt (stripes, footer): #18244A
+  border: #2A3A66
+  text: #E8ECF6
+  text-muted: #9AA7C7
+  primary (buttons, headings, links): #7C9CF5
+  primary-hover: #9DB5F8
+  on-primary: #0A1020
+  accent (Apply button, highlights): #D6203D
+  accent-hover: #E84560
+  on-accent: #FFFFFF
+  accent-text (red used as text or links on dark): #FF5A73
+  focus-ring: #8FB0FF
+  success: #4ADE80
+  warning: #FBBF24
+  error: #FF7A70
+ 
+OPTIONAL HIGHLIGHT (for small badges such as "Coming soon" or "New intake"; remove if you prefer only navy and red)
+  light mode: #B7791F on #FFF6E0
+  dark mode: #FBBF24 on #2A2310
+ 
+NOTES FOR CURSOR
+  - Define these as CSS variables on :root and again for dark mode (prefers-color-scheme plus a manual toggle). Do not hardcode hex values inside components.
+  - Navy text and the navy parts of the logo disappear on dark backgrounds. In dark mode show a white or light version of the logo, or place the normal logo on a white rounded badge. Ask me which I prefer.
+  - Use red for calls to action only (Apply, Enroll), not for body text.
+  - Check contrast for every text and background pair (at least 4.5 to 1 for normal text).
+ 
+LOGO FILES
+  Main logo (color, for light backgrounds): [FILL file name]
+  Light logo (white, for dark backgrounds): [FILL file name or NONE]
+  Icon only (for favicon and app icon, for example the film reel or the 24): [FILL file name or NONE]
+ 
+Claude finished the response
+
+Image to use for sharing links on WhatsApp and social media: [FILL]
+
+
+12. ABOUT TEXT (your own words)
+-------------------------------
+Why the school was started: [FILL]
+Who it is for: [FILL]
+What makes it different: [FILL]
+Mission in one sentence: [FILL]
+Values or code (3 to 5 short lines): [FILL]
+
+once youre done create a new text file with everything i need to fill in and also clalify in the refernce folder
+ also improve the admin panel and also use some nice compnents and animations with parallax libralies like I had installed light rays animation

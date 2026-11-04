@@ -1,33 +1,28 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen grid place-items-center">
-      <div className="absolute top-5 left-5">
-        <button
-          type="button"
-          id="explore-btn"
-          className=" hover:cursor-pointer"
-          onClick={() => console.log("Clicked")}
-        >
-          <Link href={`/`}>Go back home</Link>
-        </button>
-      </div>
-      <div>
-        <div className="flex items-center justify-center gap-3 mb-7 ">
-          <Image src="/icons/logo.png" alt="logo" width={50} height={50} />
-          <p className="text-4xl text-blue-500">Visual 24</p>
+    <div className="grid min-h-screen place-items-center bg-background px-5">
+      <div className="max-w-md text-center">
+        <div className="mb-7 flex items-center justify-center gap-3">
+          <Image src="/icons/logo.png" alt="logo" width={40} height={40} />
+          <p className="text-2xl font-semibold">Visual 24</p>
         </div>
-        <h1 className="text-center text-destructive">404 Not Found</h1>
-        <p className="text-center mt-3">
-          Sorry The page {`You're `}looking for does not exist.{" "}
-          <span className="text-blue-600 underline underline-offset-2">
-            Press
-          </span>{" "}
-          the button to go back to home
+        <p className="kicker text-muted-foreground">404</p>
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight">
+          Page not found
+        </h1>
+        <p className="mt-3 text-muted-foreground">
+          The page you are looking for does not exist.
         </p>
+        <Link
+          href="/"
+          className={buttonVariants({ className: "mt-8 h-11 px-6" })}
+        >
+          Go back home
+        </Link>
       </div>
     </div>
   );

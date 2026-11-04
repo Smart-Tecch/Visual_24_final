@@ -1,0 +1,14 @@
+Read school-info.txt and the project's CURSOR_PROMPT.md first.
+
+TASK: replace every image on the site with the ones in the reference/ folder.
+
+1. List every subfolder and file inside reference/. The folder names are categories. Show me a table that maps each folder to the part of the site it should go to (hero, categories, course cards, student work, team, sponsors, about, share image). Wait for my OK before changing anything.
+2. COPY the images, never move or delete anything in reference/. Put the copies in public/images/<category>/ with lowercase, hyphenated file names.
+3. Make them web-ready: convert to WebP, resize to a maximum width of 1600px (smaller for logos and thumbnails), and keep file sizes small because my users are on mobile data.
+4. Replace all old image paths from the Lovable version. Use next/image with proper width, height and sizes, and write honest alt text that describes what is in the picture. Do not guess people's names.
+5. Use school-info.txt for founders, sponsors, socials and contact details. Build the sponsors and team sections only if their data is filled in. Where a field says [FILL], hide that part instead of inventing content.
+6. Tell me about any page or card that has no matching image, and about any image you could not place.
+7. When done, run pnpm build and report any errors. Do not commit anything.
+8. Tell me if the reference folder is large, and ask whether it should be added to .gitignore so it does not slow down or break my Vercel deployment.
+
+Explain each step briefly as you go, because I'm learning. also update the sitemap.ts file, fix colors to resemble/ match our logos also add theme feature were the site gives you flexibility to chose youre theme and by default chooses device/browser theme update the favicon to one of the images in the logo dir in reeference dir  read the reference folder text file for school info

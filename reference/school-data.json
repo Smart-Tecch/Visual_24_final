@@ -1,0 +1,246 @@
+{
+  "_readme": "Single source of truth for the Visual 24 website. Fields set to null or containing TODO are not known yet: never invent a value for them. Hide any UI that depends on a null value. Fields marked confirm need the owner's confirmation before they are shown publicly.",
+
+  "school": {
+    "name": "Visual 24 Technical Institute",
+    "shortName": "Visual 24",
+    "motto": "Your Talent, Our Training",
+    "tagline": "Empowering creative minds with practical skills, industry experience, and modern technology to build successful careers.",
+    "country": "Uganda",
+    "address": {
+      "line1": "Katale Road, off Kasenge",
+      "line2": "Steve House, Room No. 4",
+      "area": "Kasenge",
+      "country": "Uganda",
+      "mapUrl": null
+    },
+    "contacts": {
+      "email": "visual24technicalinstitute@gmail.com",
+      "phone": null,
+      "whatsapp": null,
+      "openingHours": null
+    },
+    "social": {
+      "tiktok": [
+        "https://www.tiktok.com/@visual.techinical24",
+        "https://www.tiktok.com/@smarttechug29"
+      ],
+      "youtube": "https://youtube.com/@pixelmanagement-z1h",
+      "facebook": null,
+      "instagram": null
+    },
+    "domain": null,
+    "foundedYear": null
+  },
+
+  "stats": {
+    "_note": "The live site shows 12+ courses, 8 labs, 70% mentors in industry. These are unverified template numbers. Do not display them. Derive course count from the database; show no other stat until the owner supplies real numbers.",
+    "show": false,
+    "items": []
+  },
+
+  "categories": [
+    { "slug": "technical", "name": "Technical", "order": 1 },
+    { "slug": "creative", "name": "Creative", "order": 2 },
+    { "slug": "business", "name": "Business", "order": 3 }
+  ],
+
+  "courses": [
+    {
+      "slug": "web-design-development",
+      "title": "Web Design & Development",
+      "category": "technical",
+      "level": "Intermediate",
+      "duration": "4 Months",
+      "status": "active",
+      "featured": true,
+      "order": 1,
+      "summary": "Build modern and responsive websites.",
+      "outlineStatus": "suggested, owner to confirm",
+      "outline": [
+        "HTML and CSS fundamentals",
+        "Responsive layout",
+        "JavaScript basics",
+        "A front-end library",
+        "Git and GitHub",
+        "Introduction to back-end and databases",
+        "Deploying a live website"
+      ],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "coding-programming",
+      "title": "Coding & Programming",
+      "category": "technical",
+      "level": "Beginner",
+      "duration": null,
+      "status": "active",
+      "featured": true,
+      "order": 2,
+      "summary": "Turn ideas into working software with practical coding and problem-solving skills.",
+      "outlineStatus": "suggested, owner to confirm",
+      "outline": [
+        "How programs work: logic and problem solving",
+        "Core programming concepts",
+        "Writing and debugging small programs",
+        "Working with data",
+        "A final practical project"
+      ],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "computer-studies",
+      "title": "Computer Studies",
+      "category": "technical",
+      "level": "Beginner",
+      "duration": "1.5 Months",
+      "status": "active",
+      "featured": true,
+      "order": 3,
+      "summary": "Essential computer skills for everyone.",
+      "outlineStatus": "suggested, owner to confirm",
+      "outline": [
+        "Computer fundamentals and parts of a computer",
+        "Operating system and file management",
+        "Word processing",
+        "Spreadsheets",
+        "Presentations",
+        "Internet, email and online safety",
+        "Typing practice"
+      ],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "multimedia-training",
+      "title": "Multimedia Training",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": null,
+      "status": "active",
+      "featured": false,
+      "order": 4,
+      "summary": "Bring video, sound, graphics and digital storytelling together.",
+      "outline": [],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "graphic-design",
+      "title": "Graphic Design",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": "3 Months",
+      "status": "active",
+      "featured": true,
+      "order": 5,
+      "summary": "Create powerful visual designs using modern tools.",
+      "outline": [],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "photography",
+      "title": "Photography",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": "2 Months",
+      "status": "active",
+      "featured": false,
+      "order": 6,
+      "summary": "Master the art of capturing stunning images.",
+      "outline": [],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "digital-marketing",
+      "title": "Digital Marketing",
+      "category": "business",
+      "level": "Beginner",
+      "duration": "2 Months",
+      "status": "active",
+      "featured": false,
+      "order": 7,
+      "summary": "Grow businesses using digital platforms.",
+      "outline": [],
+      "fee": null,
+      "instructor": null
+    },
+    {
+      "slug": "music-production",
+      "title": "Music Production",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": "3 Months",
+      "status": "active",
+      "featured": false,
+      "order": 8,
+      "summary": "Produce professional music tracks.",
+      "outline": [],
+      "fee": null,
+      "instructor": null,
+      "_note": "confirm this course is offered at launch"
+    },
+    {
+      "slug": "videography",
+      "title": "Videography",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": "2 Months",
+      "status": "coming-soon",
+      "featured": false,
+      "order": 9,
+      "summary": "Professional video shooting and editing.",
+      "outline": [],
+      "fee": null,
+      "instructor": null,
+      "_note": "confirm: needs cameras, set to coming-soon until equipment is bought"
+    },
+    {
+      "slug": "film-production",
+      "title": "Film Production",
+      "category": "creative",
+      "level": "Beginner",
+      "duration": "3 Months",
+      "status": "coming-soon",
+      "featured": false,
+      "order": 10,
+      "summary": "Learn professional filmmaking from script to screen.",
+      "outline": [],
+      "fee": null,
+      "instructor": null,
+      "_note": "equipment not bought yet: do not emphasize, show as coming soon"
+    }
+  ],
+
+  "intakes": [],
+
+  "projects": {
+    "_note": "The live site shows sample student work (Dreams short film, Local Cafe brand identity, Wedding photography series). Treat these as placeholders. Hide the Student Work section until real projects are added through the admin area.",
+    "items": []
+  },
+
+  "pages": {
+    "home": {
+      "heroTitle": "Visual 24 Technical Institute",
+      "heroSubtitle": "Empowering creative minds with practical skills, industry experience and modern technology. From coding and programming to computer studies and creative production, build the skills for a successful career.",
+      "primaryCta": { "label": "Explore courses", "href": "/courses" },
+      "secondaryCta": { "label": "Talk to us", "href": "/contact" },
+      "heroTags": ["Coding & programming", "Computer studies", "Creative arts"]
+    },
+    "about": {
+      "mission": "Transformative learning through craft, community and real briefs. We focus on making, not lectures.",
+      "studioCode": "Show up on time. Credit collaborators. Tell the truth in critique. Leave the space better than you found it.",
+      "team": []
+    }
+  },
+
+  "seo": {
+    "titleTemplate": "%s · Visual 24 Technical Institute",
+    "defaultTitle": "Your Talent, Our Training · Visual 24 Technical Institute",
+    "description": "Visual 24 Technical Institute offers hands-on coding, programming, computer studies, web design, graphic design, photography and multimedia training in Kasenge, Uganda."
+  }
+}

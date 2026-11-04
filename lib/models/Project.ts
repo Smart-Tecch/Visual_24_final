@@ -12,6 +12,7 @@ const ProjectSchema = new Schema(
       required: true,
       unique: true,
       lowercase: true,
+      index: true,
     },
     description: {
       type: String,
@@ -19,22 +20,26 @@ const ProjectSchema = new Schema(
     },
     category: {
       type: String,
-      required: true, // Film, Photography, Web Design, Music, etc.
+      required: true,
+    },
+    images: {
+      type: [String],
+      default: [],
     },
     coverImage: {
       type: String,
     },
-    media: [
-      {
-        type: String, // array of image/video urls
-      },
-    ],
-    studentName: {
-      type: String,
+    studentNames: {
+      type: [String],
+      default: [],
     },
     course: {
       type: Schema.Types.ObjectId,
       ref: "Course",
+    },
+    published: {
+      type: Boolean,
+      default: false,
     },
     isFeatured: {
       type: Boolean,

@@ -1,144 +1,105 @@
 import mongoose from "mongoose";
+import fs from "fs";
+import path from "path";
+import bcrypt from "bcryptjs";
 import dbConnect from "../lib/db";
 import Course from "../lib/models/Course";
-import Project from "../lib/models/Project";
+import SiteSettings from "../lib/models/SiteSettings";
+import Admin from "../lib/models/Admin";
 
-const courses = [
-  {
-    title: "Film Production",
-    slug: "film-production",
-    shortDescription: "Learn professional filmmaking from script to screen.",
-    fullDescription:
-      "Complete training in directing, cinematography, editing and production.",
-    duration: "3 Months",
-    level: "Beginner",
-    isFeatured: true,
-    order: 1,
-  },
-  {
-    title: "Photography",
-    slug: "photography",
-    shortDescription: "Master the art of capturing stunning images.",
-    fullDescription:
-      "From camera basics to advanced lighting and photo editing.",
-    duration: "2 Months",
-    level: "Beginner",
-    isFeatured: true,
-    order: 2,
-  },
-  {
-    title: "Graphic Design",
-    slug: "graphic-design",
-    shortDescription: "Create powerful visual designs using modern tools.",
-    fullDescription:
-      "Learn Photoshop, Illustrator, branding and visual communication.",
-    duration: "3 Months",
-    level: "Beginner",
-    isFeatured: true,
-    order: 3,
-  },
-  {
-    title: "Web Design & Development",
-    slug: "web-design-development",
-    shortDescription: "Build modern and responsive websites.",
-    fullDescription: "HTML, CSS, JavaScript, React and Next.js training.",
-    duration: "4 Months",
-    level: "Intermediate",
-    isFeatured: true,
-    order: 4,
-  },
-  {
-    title: "Music Production",
-    slug: "music-production",
-    shortDescription: "Produce professional music tracks.",
-    fullDescription: "Learn FL Studio, mixing, mastering and sound design.",
-    duration: "3 Months",
-    level: "Beginner",
-    isFeatured: false,
-    order: 5,
-  },
-  {
-    title: "Digital Marketing",
-    slug: "digital-marketing",
-    shortDescription: "Grow businesses using digital platforms.",
-    fullDescription:
-      "SEO, Social Media Marketing, Google Ads and content strategy.",
-    duration: "2 Months",
-    level: "Beginner",
-    isFeatured: false,
-    order: 6,
-  },
-  {
-    title: "Videography",
-    slug: "videography",
-    shortDescription: "Professional video shooting and editing.",
-    fullDescription: "Camera work, lighting, storytelling and post-production.",
-    duration: "2 Months",
-    level: "Beginner",
-    isFeatured: false,
-    order: 7,
-  },
-  {
-    title: "Computer Studies",
-    slug: "computer-studies",
-    shortDescription: "Essential computer skills for everyone.",
-    fullDescription:
-      "MS Office, internet, basic troubleshooting and digital literacy.",
-    duration: "1.5 Months",
-    level: "Beginner",
-    isFeatured: false,
-    order: 8,
-  },
-];
+type SeedFile = {
+  school: Record<string, unknown>;
+  categories: { slug: string; name: string; order: number }[];
+  courses: {
+    slug: string;
+    title: string;
+    category: string;
+    level: string;
+    duration: string | null;
+    status: string;
+    featured: boolean;
+    order: number;
+    summary: string;
+    outline?: string[];
+    fee: number | null;
+    instructor: string | null;
+  }[];
+  pages: Record<string, unknown>;
+  seo: Record<string, unknown>;
+};
+
+function loadSchoolData(): SeedFile {
+  const filePath = path.join(process.cwd(), "reference", "school-data.json");
+  const raw = fs.readFileSync(filePath, "utf8");
+  return JSON.parse(raw) as SeedFile;
+}
 
 async function seed() {
   try {
     await dbConnect();
     console.log("Connected to database...");
 
-    // Clear existing data
-    await Course.deleteMany({});
-    await Project.deleteMany({});
-    console.log("Cleared old data...");
+    const data = loadSchoolData();
 
-    // Insert courses
-    const createdCourses = await Course.insertMany(courses);
-    console.log(`✅ ${createdCourses.length} courses created`);
+    for (const course of data.courses) {
+      await Course.findOneAndUpdate(
+        { slug: course.slug },
+        {
+          title: course.title,
+          slug: course.slug,
+          category: course.category,
+          level: course.level,
+          duration: course.duration ?? undefined,
+          status: course.status,
+          featured: course.featured,
+          order: course.order,
+          summary: course.summary,
+          outline: course.outline ?? [],
+          fee: course.fee ?? undefined,
+          instructor: course.instructor ?? undefined,
+        },
+        { upsert: true, setDefaultsOnInsert: true },
+      );
+    }
+    console.log(`✅ Upserted ${data.courses.length} courses`);
 
-    // Create some sample projects
-    const projects = [
+    await SiteSettings.findOneAndUpdate(
+      { key: "default" },
       {
-        title: "Student Short Film - Dreams",
-        slug: "student-short-film-dreams",
-        description:
-          "A powerful short film created by our film production students.",
-        category: "Film Production",
-        isFeatured: true,
-        course: createdCourses[0]._id,
+        key: "default",
+        school: data.school,
+        categories: data.categories,
+        pages: data.pages,
+        seo: data.seo,
+        showFees: false,
       },
-      {
-        title: "Brand Identity - Local Cafe",
-        slug: "brand-identity-local-cafe",
-        description:
-          "Complete branding package designed by graphic design class.",
-        category: "Graphic Design",
-        isFeatured: true,
-        course: createdCourses[2]._id,
-      },
-      {
-        title: "Wedding Photography Series",
-        slug: "wedding-photography-series",
-        description: "Beautiful wedding coverage by photography students.",
-        category: "Photography",
-        isFeatured: true,
-        course: createdCourses[1]._id,
-      },
-    ];
+      { upsert: true, setDefaultsOnInsert: true },
+    );
+    console.log("✅ Site settings upserted");
 
-    const createdProjects = await Project.insertMany(projects);
-    console.log(`✅ ${createdProjects.length} projects created`);
+    const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    if (adminEmail && adminPassword) {
+      const passwordHash = await bcrypt.hash(adminPassword, 12);
+      await Admin.findOneAndUpdate(
+        { email: adminEmail },
+        {
+          name: "Visual 24 Admin",
+          email: adminEmail,
+          passwordHash,
+          role: "admin",
+        },
+        { upsert: true, setDefaultsOnInsert: true },
+      );
+      console.log(`✅ Admin upserted for ${adminEmail}`);
+    } else {
+      console.log(
+        "Skipped admin user. Set ADMIN_EMAIL and ADMIN_PASSWORD in .env.local, then run seed again.",
+      );
+    }
 
-    console.log("\n🎉 Seeding completed successfully!");
+    console.log("\n🎉 Seeding completed successfully (safe to re-run).");
+    await mongoose.disconnect();
     process.exit(0);
   } catch (error) {
     console.error("Seeding failed:", error);
