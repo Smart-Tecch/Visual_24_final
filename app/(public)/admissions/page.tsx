@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { admissionSteps } from "@/lib/site-content";
+import { admissionSteps, siteImages } from "@/lib/site-content";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
@@ -11,7 +11,8 @@ export default function AdmissionsPage() {
         kicker="Admissions"
         title="Come see the rooms. Then apply."
         lede="A visit, a conversation, and a start date. We keep the process human so you can focus on the work."
-        image="/images/event4.png"
+        image={siteImages.pages.admissions}
+        imageAlt="Web design session at Visual 24 Technical Institute"
       />
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-6 md:grid-cols-2">

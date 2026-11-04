@@ -6,8 +6,23 @@ export const schoolData = raw;
 export type SchoolData = typeof schoolData;
 
 export function formatAddress() {
-  const { line1, line2, area, country } = schoolData.school.address;
-  return [line1, line2, area, country].filter(Boolean).join(", ");
+  const { line1, line2, area, country, landmark } = schoolData.school.address as {
+    line1: string;
+    line2?: string;
+    area?: string;
+    country?: string;
+    landmark?: string;
+  };
+  return [line1, line2, area, landmark, country].filter(Boolean).join(", ");
+}
+
+export function contactPhones(): string[] {
+  const contacts = schoolData.school.contacts as {
+    phones?: string[];
+    phone?: string | null;
+  };
+  if (contacts.phones?.length) return contacts.phones;
+  return contacts.phone ? [contacts.phone] : [];
 }
 
 /** Static course list from JSON — used only when MongoDB is unavailable (local dev). */

@@ -3,6 +3,7 @@ import { connection } from "next/server";
 import { getCourses } from "@/lib/actions/course.actions";
 import CourseCard from "@/components/CourseCard";
 import PageHero from "@/components/PageHero";
+import { siteImages } from "@/lib/site-content";
 import {
   categoryName,
   coursesFromSchoolData,
@@ -17,7 +18,8 @@ export default function CoursesPage() {
         kicker="Academics"
         title="Courses that start with doing."
         lede="Technical training first — web, coding and computer studies — plus creative and business studios."
-        image="/images/event4.png"
+        image={siteImages.pages.courses}
+        imageAlt="Students at computers during a Visual 24 coding class"
       />
       <Suspense
         fallback={

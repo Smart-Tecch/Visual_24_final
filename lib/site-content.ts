@@ -1,29 +1,48 @@
 import { schoolData } from "@/lib/school-data";
 
+/** Public WebP paths — copied from reference/ by scripts/process-reference-images.mjs */
+
+export const siteImages = {
+  logo: "/images/logos/logo-main.webp",
+  logoFull: "/images/logos/logo-full.webp",
+  hero: "/images/hero/home-hero.webp",
+  pages: {
+    about: "/images/pages/about-hero.webp",
+    contact: "/images/pages/contact-hero.webp",
+    courses: "/images/pages/courses-hero.webp",
+    admissions: "/images/pages/admissions-hero.webp",
+    blog: "/images/pages/blog-hero.webp",
+    projects: "/images/categories/creative.webp",
+  },
+} as const;
+
 export const courseImages: Record<string, string> = {
-  "web-design-development": "/images/event4.png",
-  "coding-programming": "/images/event4.png",
-  "computer-studies": "/images/event4.png",
-  "multimedia-training": "/images/event-full.png",
-  "graphic-design": "/images/event3.png",
-  photography: "/images/event2.png",
-  "digital-marketing": "/images/event6.png",
-  "music-production": "/images/event5.png",
-  videography: "/images/event-full.png",
-  "film-production": "/images/event1.png",
+  "web-design-development": "/images/courses/web-design-development.webp",
+  "coding-programming": "/images/courses/coding-programming.webp",
+  "computer-studies": "/images/courses/computer-studies.webp",
+  "multimedia-training": "/images/courses/multimedia-training.webp",
+  "graphic-design": "/images/courses/graphic-design.webp",
+  photography: "/images/courses/photography.webp",
+  "digital-marketing": "/images/courses/digital-marketing.webp",
+  "music-production": "/images/courses/music-production.webp",
+  videography: "/images/courses/videography.webp",
+  "film-production": "/images/courses/film-production.webp",
 };
 
 export function mediaForCourse(slug: string, image?: string) {
-  return image || courseImages[slug] || "/images/event4.png";
+  return image || courseImages[slug] || siteImages.pages.courses;
 }
 
 export function mediaForProject(category?: string, image?: string) {
   if (image) return image;
   const key = (category || "").toLowerCase();
-  if (key.includes("film")) return "/images/event1.png";
-  if (key.includes("photo")) return "/images/event2.png";
-  if (key.includes("design")) return "/images/event3.png";
-  return "/images/event6.png";
+  if (key.includes("film") || key.includes("video"))
+    return courseImages.videography;
+  if (key.includes("photo")) return courseImages.photography;
+  if (key.includes("design")) return courseImages["graphic-design"];
+  if (key.includes("web") || key.includes("code"))
+    return courseImages["web-design-development"];
+  return siteImages.pages.projects;
 }
 
 const categoryBlurbs: Record<string, string> = {
@@ -35,9 +54,9 @@ const categoryBlurbs: Record<string, string> = {
 };
 
 const categoryImages: Record<string, string> = {
-  technical: "/images/event4.png",
-  creative: "/images/event3.png",
-  business: "/images/event6.png",
+  technical: "/images/categories/technical.webp",
+  creative: "/images/categories/creative.webp",
+  business: "/images/categories/business.webp",
 };
 
 export const studioCategories = [...schoolData.categories]
@@ -46,9 +65,39 @@ export const studioCategories = [...schoolData.categories]
     slug: category.slug,
     name: category.name,
     href: `/courses#${category.slug}`,
-    image: categoryImages[category.slug] ?? "/images/event4.png",
+    image: categoryImages[category.slug] ?? siteImages.pages.courses,
     blurb: categoryBlurbs[category.slug] ?? "",
   }));
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  coursesTaught?: string;
+  socialUrl?: string | null;
+  photo?: string | null;
+  show?: boolean;
+};
+
+export type Sponsor = {
+  name: string;
+  relationship: string;
+  description?: string;
+  url?: string | null;
+  logo?: string | null;
+  show?: boolean;
+};
+
+export function getTeamMembers(): TeamMember[] {
+  const team =
+    (schoolData.pages.about.team as TeamMember[] | undefined) ?? [];
+  return team.filter((member) => member.name && member.show !== false);
+}
+
+export function getSponsors(): Sponsor[] {
+  const sponsors =
+    (schoolData as { sponsors?: Sponsor[] }).sponsors ?? [];
+  return sponsors.filter((s) => s.name && s.show !== false);
+}
 
 export const values = [
   {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/actions/project.actions";
 import PageHero from "@/components/PageHero";
-import { mediaForProject } from "@/lib/site-content";
+import { mediaForProject, siteImages } from "@/lib/site-content";
 import { Project } from "@/lib/types";
 import {
   Card,
@@ -20,7 +20,8 @@ export default function ProjectsPage() {
         kicker="Student work"
         title="The portfolio is the proof."
         lede="Real student projects will appear here once they are published from the admin area."
-        image="/images/event3.png"
+        image={siteImages.pages.projects}
+        imageAlt="Creative studio work at Visual 24 Technical Institute"
       />
       <Suspense
         fallback={

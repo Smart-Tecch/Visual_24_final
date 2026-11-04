@@ -1,0 +1,22 @@
+Reference image folders — how they map to the live site
+======================================================
+
+logos/
+  Main brand marks. Used for navbar, favicon (/images/logos/*).
+
+images for coding/
+  Training and lab photos. Used for home hero, course cards, category cards, and page heroes.
+
+founders/
+  Team headshots — not shown yet (placeholders on /about until you set photo paths in school-data.json).
+
+supponsors/
+  Partner logos on /about. T24 and Dzionz are wired; IMG-20261026-WA0011.jpg is unused (community photo — confirm before use).
+
+about founders schools details and friends/
+  About page hero (group / school context photo).
+
+To refresh public/images after changing reference files:
+  pnpm process-images
+
+See also: OWNER-FILL-IN-CHECKLIST.txt and school-info.txt

@@ -8,6 +8,8 @@ import { Menu } from "lucide-react";
 import { baseNavPages, socials } from "../public/data/navdata";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import ThemeToggle from "@/components/ThemeToggle";
+import { siteImages } from "@/lib/site-content";
 import {
   Sheet,
   SheetContent,
@@ -53,13 +55,27 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
           )}
           href="/"
         >
-          <Image src="/icons/logo.png" alt="Visual 24" width={28} height={28} />
+          <span
+            className={cn(
+              "flex size-9 items-center justify-center rounded-lg",
+              overlay ? "bg-white/95" : "bg-white ring-1 ring-border dark:bg-white",
+            )}
+          >
+            <Image
+              src={siteImages.logo}
+              alt="Visual 24 Technical Institute logo"
+              width={28}
+              height={28}
+              className="size-7 object-contain"
+            />
+          </span>
           <span className="text-lg font-semibold tracking-tight max-sm:hidden">
             Visual 24
           </span>
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-3">
+          <ThemeToggle overlay={overlay} className="hidden sm:inline-flex" />
           <Link
             href="/contact"
             className={cn(
@@ -114,6 +130,9 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                   {motto || "Your Talent, Our Training"}
                 </SheetDescription>
               </SheetHeader>
+              <div className="px-6 pt-4">
+                <ThemeToggle overlay />
+              </div>
               <div className="flex flex-col gap-1 px-6 pt-6">
                 <Link
                   href="/"
@@ -145,9 +164,8 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                   <Link
                     href="/admissions"
                     className={buttonVariants({
-                      variant: "outline",
-                      className:
-                        "h-11 flex-1 border-white/30 bg-transparent px-5 text-white hover:bg-white/10 hover:text-white",
+                      variant: "accent",
+                      className: "h-11 flex-1 px-5",
                     })}
                   >
                     Apply

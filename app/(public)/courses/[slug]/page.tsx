@@ -55,6 +55,7 @@ function CourseDetailView({ course }: { course: Course }) {
         title={course.title}
         lede={course.summary}
         image={mediaForCourse(course.slug, course.image)}
+        imageAlt={`${course.title} training at Visual 24 Technical Institute`}
       />
       <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
         <div className="mb-6 flex flex-wrap gap-2">
@@ -99,7 +100,10 @@ function CourseDetailView({ course }: { course: Course }) {
           ) : (
             <Link
               href="/admissions"
-              className={buttonVariants({ className: "h-11 px-6" })}
+              className={buttonVariants({
+                variant: "accent",
+                className: "h-11 px-6",
+              })}
             >
               Apply
             </Link>

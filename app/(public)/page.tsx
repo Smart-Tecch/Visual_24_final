@@ -10,7 +10,7 @@ import {
   coursesFromSchoolData,
   schoolData,
 } from "@/lib/school-data";
-import { mediaForProject, studioCategories } from "@/lib/site-content";
+import { mediaForProject, studioCategories, siteImages } from "@/lib/site-content";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -29,8 +29,8 @@ export default function HomePage() {
     <div className="bg-background text-foreground">
       <section className="relative min-h-screen w-full overflow-hidden">
         <Image
-          src="/images/event-full.png"
-          alt="Students at Visual 24 Technical Institute"
+          src={siteImages.hero}
+          alt="Students learning web and computer skills at Visual 24 Technical Institute"
           fill
           priority
           className="object-cover"
@@ -173,7 +173,10 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/admissions"
-                className={buttonVariants({ className: "h-11 px-6" })}
+                className={buttonVariants({
+                  variant: "accent",
+                  className: "h-11 px-6",
+                })}
               >
                 Apply
               </Link>

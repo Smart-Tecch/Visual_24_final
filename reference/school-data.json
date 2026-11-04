@@ -8,17 +8,19 @@
     "tagline": "Empowering creative minds with practical skills, industry experience, and modern technology to build successful careers.",
     "country": "Uganda",
     "address": {
-      "line1": "Katale Road, off Kasenge",
-      "line2": "Steve House, Room No. 4",
+      "line1": "Nakawuka Road Kasenge",
+      "line2": "Next to \"Voice of Kasenge\" Local Radio Station",
       "area": "Kasenge",
       "country": "Uganda",
+      "landmark": "Opposite Tukutuku Stage",
       "mapUrl": null
     },
     "contacts": {
-      "email": "visual24technicalinstitute@gmail.com",
-      "phone": null,
-      "whatsapp": null,
-      "openingHours": null
+      "email": "visual24technical@gmail.com",
+      "phones": ["0759443764", "0744953288", "0741653226"],
+      "phone": "0759443764",
+      "whatsapp": "0741653226",
+      "openingHours": "Open 12 hours, 7 days a week"
     },
     "social": {
       "tiktok": [
@@ -29,9 +31,29 @@
       "facebook": null,
       "instagram": null
     },
-    "domain": null,
-    "foundedYear": null
+    "domain": "visual-24-technical-institute.vercel.app",
+    "foundedYear": 2026,
+    "legalName": "Visual Power Systems"
   },
+
+  "sponsors": [
+    {
+      "name": "T24 Tours and travel",
+      "relationship": "Partner",
+      "description": "Funding",
+      "url": "https://www.tiktok.com/@frank.picson?is_from_webapp=1&sender_device=pc",
+      "logo": "/images/sponsors/t24-tours.webp",
+      "show": true
+    },
+    {
+      "name": "Dzionz Youth Center",
+      "relationship": "Partner",
+      "description": "Jobs",
+      "url": "https://www.tiktok.com/@dzionzyouthcenter?is_from_webapp=1&sender_device=pc",
+      "logo": "/images/sponsors/dzionz-youth-center.webp",
+      "show": true
+    }
+  ],
 
   "stats": {
     "_note": "The live site shows 12+ courses, 8 labs, 70% mentors in industry. These are unverified template numbers. Do not display them. Derive course count from the database; show no other stat until the owner supplies real numbers.",
@@ -74,7 +96,7 @@
       "title": "Coding & Programming",
       "category": "technical",
       "level": "Beginner",
-      "duration": null,
+      "duration": "2 Months",
       "status": "active",
       "featured": true,
       "order": 2,
@@ -234,7 +256,32 @@
     "about": {
       "mission": "Transformative learning through craft, community and real briefs. We focus on making, not lectures.",
       "studioCode": "Show up on time. Credit collaborators. Tell the truth in critique. Leave the space better than you found it.",
-      "team": []
+      "team": [
+        {
+          "name": "Mukalazi Abdul-Noor Miqdaad",
+          "role": "Founder",
+          "coursesTaught": "Microsoft Office Suite / Setup, Web-designing",
+          "socialUrl": "https://www.tiktok.com/@al.muqudaad?is_from_webapp=1&sender_device=pc",
+          "photo": null,
+          "show": true
+        },
+        {
+          "name": "Mugejera Frank",
+          "role": "Graphic Designer, Editor, Producer",
+          "coursesTaught": "Graphic Designing, Video Editing, Music Production",
+          "socialUrl": "https://www.tiktok.com/@frank.picson?is_from_webapp=1&sender_device=pc",
+          "photo": null,
+          "show": true
+        },
+        {
+          "name": "Ssebuuma Mesach",
+          "role": "Web-Designer, Programmer, Web-Developer, Software Engineer",
+          "coursesTaught": "Web development, Programming, Computer studies",
+          "socialUrl": "https://www.tiktok.com/@smarttechug29?is_from_webapp=1&sender_device=pc",
+          "photo": null,
+          "show": true
+        }
+      ]
     }
   },
 

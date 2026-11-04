@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 import { socials } from "@/public/data/footerdata";
 import { buttonVariants } from "@/components/ui/button";
 import { getSiteSettings } from "@/lib/actions/settings.actions";
@@ -8,8 +9,18 @@ const Footer = async () => {
   const settings = await getSiteSettings();
   const { school } = settings;
   const email = school.contacts.email;
-  const phone = school.contacts.phone;
-  const whatsapp = school.contacts.whatsapp;
+  const contacts = school.contacts as {
+    phones?: string[];
+    phone?: string | null;
+    whatsapp?: string | null;
+  };
+  const phones =
+    contacts.phones?.length && contacts.phones
+      ? contacts.phones
+      : contacts.phone
+        ? [contacts.phone]
+        : [];
+  const whatsapp = contacts.whatsapp;
 
   return (
     <footer className="bg-dark-100 text-white">
@@ -33,9 +44,8 @@ const Footer = async () => {
             <Link
               href="/admissions"
               className={buttonVariants({
-                variant: "outline",
-                className:
-                  "h-11 border-white/30 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white",
+                variant: "accent",
+                className: "h-11 px-6",
               })}
             >
               Apply
@@ -56,21 +66,28 @@ const Footer = async () => {
               </a>
             </p>
           ) : null}
-          {phone ? (
+          {phones.length > 0 ? (
             <p>
-              <a className="hover:text-primary" href={`tel:${phone}`}>
-                {phone}
-              </a>
+              {phones.map((phone) => (
+                <a
+                  key={phone}
+                  className="mr-3 hover:text-primary"
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                >
+                  {phone}
+                </a>
+              ))}
             </p>
           ) : null}
           {whatsapp ? (
             <p>
               <a
-                className="hover:text-primary"
+                className="inline-flex items-center gap-2 hover:text-primary"
                 href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <FaWhatsapp className="size-4 text-[#25D366]" aria-hidden />
                 WhatsApp
               </a>
             </p>

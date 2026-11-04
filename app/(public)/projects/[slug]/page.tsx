@@ -47,6 +47,7 @@ async function ProjectDetailContent({
           project.category,
           project.coverImage || project.images?.[0],
         )}
+        imageAlt={`Student project: ${project.title}`}
       />
       <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
         <Badge variant="secondary">{project.category}</Badge>

@@ -1,15 +1,22 @@
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { formatAddress, schoolData } from "@/lib/school-data";
+import {
+  contactPhones,
+  formatAddress,
+  schoolData,
+} from "@/lib/school-data";
+import { siteImages } from "@/lib/site-content";
 import { socials } from "@/public/data/footerdata";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function ContactPage() {
   const { contacts } = schoolData.school;
   const email = contacts.email;
-  const phone = contacts.phone as string | null;
+  const phones = contactPhones();
   const whatsapp = contacts.whatsapp as string | null;
+  const openingHours = contacts.openingHours as string | null;
 
   return (
     <div>
@@ -17,7 +24,8 @@ export default function ContactPage() {
         kicker="Inquire"
         title="Tell us what you want to learn."
         lede="Ask about a course, a visit day, or how to apply. We reply personally."
-        image="/images/event2.png"
+        image={siteImages.pages.contact}
+        imageAlt="Training room at Visual 24 Technical Institute"
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_0.8fr]">
         <Card>
@@ -34,6 +42,12 @@ export default function ContactPage() {
             <p className="kicker text-muted-foreground">Address</p>
             <p className="mt-2 text-lg">{formatAddress()}</p>
           </div>
+          {openingHours ? (
+            <div>
+              <p className="kicker text-muted-foreground">Hours</p>
+              <p className="mt-2 text-lg">{openingHours}</p>
+            </div>
+          ) : null}
           {email ? (
             <div>
               <p className="kicker text-muted-foreground">Email</p>
@@ -45,15 +59,21 @@ export default function ContactPage() {
               </a>
             </div>
           ) : null}
-          {phone ? (
+          {phones.length > 0 ? (
             <div>
               <p className="kicker text-muted-foreground">Phone</p>
-              <a
-                href={`tel:${phone}`}
-                className="mt-2 inline-block text-lg underline underline-offset-4"
-              >
-                {phone}
-              </a>
+              <ul className="mt-2 flex flex-col gap-1 text-lg">
+                {phones.map((phone) => (
+                  <li key={phone}>
+                    <a
+                      href={`tel:${phone.replace(/\s/g, "")}`}
+                      className="underline underline-offset-4"
+                    >
+                      {phone}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           ) : null}
           {whatsapp ? (
@@ -61,11 +81,12 @@ export default function ContactPage() {
               <p className="kicker text-muted-foreground">WhatsApp</p>
               <a
                 href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
-                className="mt-2 inline-block text-lg underline underline-offset-4"
+                className="mt-2 inline-flex items-center gap-2 text-lg underline underline-offset-4"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Chat on WhatsApp
+                <FaWhatsapp className="size-5 text-[#25D366]" aria-hidden />
+                Chat on WhatsApp ({whatsapp})
               </a>
             </div>
           ) : null}

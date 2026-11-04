@@ -23,6 +23,8 @@ function NavFallback() {
   return <NavbarFallback />;
 }
 
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 const layout = ({
   children,
 }: Readonly<{
@@ -43,6 +45,7 @@ const layout = ({
       >
         <Footer />
       </Suspense>
+      <WhatsAppButton />
     </>
   );
 };

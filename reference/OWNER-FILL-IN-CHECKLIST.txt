@@ -1,0 +1,87 @@
+VISUAL 24 — ITEMS STILL TO FILL IN
+==================================
+Use this checklist with reference/school-info.txt and reference/school-data.json.
+Anything marked [FILL] in school-info.txt should be completed there first, then copied into school-data.json and you run: pnpm seed
+
+LOCATION AND MAPS
+-----------------
+[ ] Google Maps link (address.mapUrl in school-data.json)
+[ ] Confirm address lines match your signpost (Nakawuka Road Kasenge vs older Katale Road text)
+
+SOCIAL MEDIA
+------------
+[ ] Facebook URL
+[ ] Instagram URL
+[ ] X (Twitter) URL
+[ ] LinkedIn URL
+[ ] Other social links
+[ ] Note which accounts are school vs personal (for footer labels)
+
+SPONSORS
+--------
+[ ] Company 3 (name, relationship, link, logo file in reference/images/supponsors/)
+[ ] Confirm T24 and Dzionz TikTok links are the correct public profiles (not personal by mistake)
+
+TEAM
+----
+[ ] Short bios (2 lines each) for all three founders
+[ ] Photo files in reference/images/founders/ — then set photo paths in school-data.json pages.about.team
+[ ] Confirm names and course lists
+
+COURSES
+-------
+[ ] Duration, fee, schedule, and instructor for Multimedia Training
+[ ] Fees and schedules for Graphic Design, Photography, Digital Marketing
+[ ] Confirm Music Production is offered at launch ([CONFIRM] in school-info.txt)
+[ ] Confirm Videography stays coming-soon until cameras are bought
+[ ] Instructor names for each course row in school-info.txt section 7
+
+ADMISSIONS
+----------
+[ ] Next intake start date(s)
+[ ] Seats per course
+[ ] Registration fee (UGX)
+[ ] Payment methods and account names (no PINs)
+[ ] Instalments and discounts
+[ ] Show fees publicly? (showFees in database — default false)
+
+FACTS AND NUMBERS
+-----------------
+[ ] Equipment and facilities list
+[ ] Student work entries (title, names, course, image file)
+[ ] Testimonials with publish permission
+[ ] Permission to publish photos of students (especially under 18)
+
+BRAND AND IMAGES
+----------------
+[ ] Verify brand hex codes with a color picker on file_0000000002188210bc2988c9eb78837a.png
+[ ] White logo for dark mode (or keep white badge behind logo — current site choice)
+[ ] Social share / Open Graph image (og:image) — WhatsApp preview
+[ ] Place unused reference files:
+    - reference/images/supponsors/IMG-20261026-WA0011.jpg (community photo?)
+    - reference/images/logos/1793356747292.jpg, 1793357410050.jpg, file_00000000*.png
+    - reference/images/founders/* (when ready for team photos)
+
+ABOUT PAGE COPY
+---------------
+[ ] Why the school was started
+[ ] Who it is for
+[ ] What makes it different
+[ ] Mission in one sentence (optional refresh)
+[ ] Values / code (3–5 lines)
+
+REFERENCE FOLDER NOTES
+----------------------
+Folder purposes (for your labels in school-info.txt section 11):
+  reference/images/logos/          — site logo, favicon
+  reference/images/images for coding/ — hero, courses, category cards, page heroes
+  reference/images/founders/       — team photos (not on site yet)
+  reference/images/supponsors/     — partner logos (2 used; 1 spare)
+  reference/images/about founders schools details and friends/ — about page hero
+
+After editing images: pnpm process-images
+After editing JSON: pnpm seed
+
+DEPLOYMENT
+----------
+The reference/ folder is roughly 25 image files plus text. It is safe to add reference/ to .gitignore if Vercel uploads feel slow — keep school-data.json in git OR store a copy outside reference/ because the app imports it at build time.

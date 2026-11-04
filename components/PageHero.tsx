@@ -5,6 +5,7 @@ interface PageHeroProps {
   title: string;
   lede?: string;
   image: string;
+  imageAlt: string;
 }
 
 export default function PageHero({
@@ -12,12 +13,13 @@ export default function PageHero({
   title,
   lede,
   image,
+  imageAlt,
 }: PageHeroProps) {
   return (
     <section className="relative h-[58vh] min-h-[420px] w-full overflow-hidden">
       <Image
         src={image}
-        alt=""
+        alt={imageAlt}
         fill
         priority
         className="object-cover"

@@ -1,13 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { siteImages } from "@/lib/site-content";
 
 const NotFound = () => {
   return (
     <div className="grid min-h-screen place-items-center bg-background px-5">
       <div className="max-w-md text-center">
         <div className="mb-7 flex items-center justify-center gap-3">
-          <Image src="/icons/logo.png" alt="logo" width={40} height={40} />
+          <Image
+            src={siteImages.logo}
+            alt="Visual 24 Technical Institute logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
           <p className="text-2xl font-semibold">Visual 24</p>
         </div>
         <p className="kicker text-muted-foreground">404</p>

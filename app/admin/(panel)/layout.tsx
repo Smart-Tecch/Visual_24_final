@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/lib/auth";
+import AdminShell from "@/components/AdminShell";
 import Link from "next/link";
 
 export const instant = false;
@@ -13,8 +14,8 @@ export default async function AdminPanelLayout({
   if (!session?.user) redirect("/admin/login");
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card">
+    <AdminShell>
+      <header className="border-b border-border/80 bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4">
           <div>
             <p className="text-xs tracking-[0.18em] uppercase text-muted-foreground">
@@ -61,6 +62,6 @@ export default async function AdminPanelLayout({
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-5 py-8">{children}</main>
-    </div>
+    </AdminShell>
   );
 }
