@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: schoolData.school.name,
     title: schoolData.seo.defaultTitle,
     description: schoolData.seo.description,
-    images: ["/images/hero/home-hero.webp"],
+    images: ["/images/hero/og-image.webp"],
   },
   icons: {
     icon: "/images/logos/favicon.webp",

@@ -149,6 +149,18 @@ export default function HomePage() {
             Read more
           </Link>
         </article>
+        <div className="relative min-h-[320px] overflow-hidden">
+          <Image
+            src={siteImages.mission}
+            alt="Students working together on laptops"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 pb-8 sm:px-8">
         <article className="bg-dark-100 px-8 py-14 text-white lg:px-12">
           <p className="kicker text-primary">The studio code</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight">
@@ -166,7 +178,16 @@ export default function HomePage() {
 
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-          <div className="rounded-2xl bg-dark-100 px-8 py-12 text-white sm:px-12">
+          <div className="relative overflow-hidden rounded-2xl bg-dark-100 px-8 py-12 text-white sm:px-12">
+            <Image
+              src={siteImages.admissionsBanner}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 1280px) 100vw, 1200px"
+            />
+            <div className="absolute inset-0 bg-dark-100/75" />
+            <div className="relative">
             <p className="kicker text-primary">Admissions</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
               Start with a conversation.
@@ -195,6 +216,7 @@ export default function HomePage() {
               >
                 Inquire
               </Link>
+            </div>
             </div>
           </div>
         </div>

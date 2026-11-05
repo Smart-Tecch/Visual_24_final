@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { socials } from "@/public/data/footerdata";
 import { buttonVariants } from "@/components/ui/button";
 import { formatAddress, schoolData } from "@/lib/school-data";
+import { siteImages } from "@/lib/site-content";
 import { whatsappHref } from "@/lib/phone";
 
 const Footer = () => {
@@ -23,7 +25,16 @@ const Footer = () => {
 
   return (
     <footer className="bg-dark-100 text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="relative overflow-hidden">
+        <Image
+          src={siteImages.cta}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-dark-100/70" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <p className="kicker text-primary">Admission</p>
           <h2 className="mt-4 max-w-xl text-4xl font-semibold tracking-tight sm:text-6xl">
@@ -109,6 +120,7 @@ const Footer = () => {
             })}
           </div>
         </div>
+      </div>
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-white/50 sm:px-8">

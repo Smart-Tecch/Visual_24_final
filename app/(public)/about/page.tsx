@@ -33,18 +33,25 @@ export default function AboutPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="kicker text-muted-foreground">Mission</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
               {about.mission}
             </h2>
-          </div>
-          <div>
-            <p className="kicker text-muted-foreground">Studio code</p>
+            <p className="kicker mt-10 text-muted-foreground">Studio code</p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               {about.studioCode}
             </p>
+          </div>
+          <div className="relative min-h-[360px] overflow-hidden rounded-2xl">
+            <Image
+              src={siteImages.mission}
+              alt="Students collaborating on laptops in class"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>

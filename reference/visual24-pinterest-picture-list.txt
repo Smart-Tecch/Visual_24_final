@@ -1,0 +1,201 @@
+VISUAL 24 TECHNICAL INSTITUTE - PICTURE SHOPPING LIST
+=====================================================
+Motto: Your Talent, Our Training
+Use this list on Pinterest: copy each SEARCH phrase into the Pinterest search bar,
+pick the best HORIZONTAL (landscape) picture, download it, and rename it to the
+FILE NAME shown. Put it in the folder shown inside your project's public folder.
+
+IMPORTANT RULE: keep the same file names the site already uses (for example
+home-hero.webp). Then you replace the picture and you do not need to change any code.
+Ask Cursor/Grok to show you the exact image paths your project uses before you rename.
+
+
+-----------------------------------------------------
+PART 0 - GENERAL RULES FOR EVERY PICTURE
+-----------------------------------------------------
+1. Orientation: LANDSCAPE (wider than tall) for hero, cards and banners.
+2. Size: at least 1600 px wide for normal pictures, at least 2400 px wide for the hero.
+3. Quality: sharp, bright, no blur, no watermarks, no text written on the picture.
+4. Faces: friendly, smiling, real people. Students and teachers look best.
+5. Look for Black/African students and young people so visitors see themselves.
+6. Keep one colour mood (pick blue, or dark with orange accents) so the site feels consistent.
+7. File type: convert to .webp before use (use squoosh.app, it is free). Aim for under 300 KB each.
+8. Leave empty space in the hero picture (left or right side) so the text is easy to read.
+9. Do not use one picture twice on the same page.
+10. Best of all: later replace these with real photos of YOUR students and classroom.
+    Real photos build more trust with parents than any stock picture.
+
+
+-----------------------------------------------------
+PART 1 - HERO (the big picture at the top of the home page)
+-----------------------------------------------------
+File: home-hero.webp        Folder: images/hero/
+Size: 2400 x 1350 px (16:9)
+Pick ONE of these ideas. Hero should show learning, energy and technology.
+
+SEARCH (option A - computer lab):
+  - african students computer lab laptops
+  - students coding together classroom laptop
+  - young people learning computer skills smiling
+SEARCH (option B - teacher and students):
+  - instructor teaching students laptop classroom
+  - teacher helping student on computer
+  - group of students working together on laptops
+SEARCH (option C - dark tech mood):
+  - dark desk setup coding monitor neon
+  - web developer workspace dark aesthetic
+  - programmer desk setup night
+SEARCH (option D - creative mix):
+  - graphic design workspace tablet colorful
+  - creative students studio laptop camera
+
+Hero tips:
+  - Choose a picture where the people are NOT in the middle (text will cover the middle).
+  - A slightly dark or blurred side makes white text readable.
+  - Make a second hero for mobile if you can: 1080 x 1350 px (portrait),
+    file name: home-hero-mobile.webp
+
+
+-----------------------------------------------------
+PART 2 - THE FOUR COURSE PICTURES
+-----------------------------------------------------
+Folder: images/courses/        Size each: 1600 x 1000 px (16:10)
+
+1) Web Design & Development (4 months)
+   File: web-design-development.webp
+   SEARCH:
+     - web design workspace laptop wireframe
+     - website design mockup laptop desk
+     - responsive website design devices
+     - front end developer coding screen
+
+2) Coding & Programming (2 months)
+   File: coding-programming.webp
+   SEARCH:
+     - coding on laptop code screen
+     - programming code editor dark theme
+     - student learning to code
+     - developer typing code close up
+
+3) Computer Studies (1.5 months)
+   File: computer-studies.webp
+   SEARCH:
+     - computer lab students typing
+     - learning microsoft word excel students
+     - beginner computer class
+     - students using computers in classroom
+
+4) Graphic Design (3 months)
+   File: graphic-design.webp
+   SEARCH:
+     - graphic designer workspace tablet
+     - logo design sketches desk
+     - color palette design desk
+     - poster design on computer screen
+
+
+-----------------------------------------------------
+PART 3 - "THREE PATHS" STUDIO CARDS (home page)
+-----------------------------------------------------
+Folder: images/studios/        Size each: 1200 x 800 px (3:2)
+
+Technical card  -> File: studio-technical.webp
+   SEARCH: coding laptop desk close up | students typing code | computer hardware repair
+Creative card   -> File: studio-creative.webp
+   SEARCH: photographer studio camera | music production studio | graphic design tablet
+Business card   -> File: studio-business.webp
+   SEARCH: digital marketing laptop social media | small business owner phone | content creator ring light
+
+
+-----------------------------------------------------
+PART 4 - CREATIVE AND BUSINESS COURSES (if you list them later)
+-----------------------------------------------------
+Folder: images/courses/        Size each: 1600 x 1000 px
+
+Photography          -> photography.webp
+   SEARCH: photography class camera students | photographer holding camera outdoors | portrait photography lighting
+Multimedia / Video   -> multimedia.webp
+   SEARCH: video editing timeline laptop | video editor desk setup | camera tripod studio
+Music Production     -> music-production.webp
+   SEARCH: music production studio headphones | beat making laptop midi keyboard
+Digital Marketing    -> digital-marketing.webp
+   SEARCH: social media marketing laptop | digital marketing analytics screen | content creator phone camera
+(You said film equipment is not bought yet, so skip film pictures for now.)
+
+
+-----------------------------------------------------
+PART 5 - ABOUT PAGE
+-----------------------------------------------------
+Folder: images/about/
+
+Mission banner       -> about-mission.webp (1920 x 900)
+   SEARCH: students collaborating project table | team brainstorming sticky notes | students group study laptops
+Studio code banner   -> about-studio-code.webp (1920 x 900)
+   SEARCH: teamwork hands together | students high five classroom | friends studying together
+Director / teacher   -> director.webp (800 x 800, square)
+   BEST: a real photo of you. Clean background, good light, smiling.
+Classroom / building -> campus.webp (1600 x 1000)
+   BEST: real photo of your classroom or the building sign at Kasenge.
+
+
+-----------------------------------------------------
+PART 6 - ADMISSIONS AND CONTACT
+-----------------------------------------------------
+Folder: images/admissions/
+
+Admissions banner    -> admissions-banner.webp (1920 x 800)
+   SEARCH: students walking campus backpacks | smiling student with laptop | graduation students celebrating
+Contact banner       -> contact-banner.webp (1920 x 600)
+   SEARCH: customer support headset smiling | welcome desk reception
+Final call-to-action background (the "Ready to build real skills?" part)
+                     -> cta-background.webp (1920 x 700)
+   SEARCH: abstract dark blue gradient background | tech pattern dark background
+   (Use a simple abstract picture here so the buttons stand out.)
+
+
+-----------------------------------------------------
+PART 7 - SOCIAL SHARE IMAGE (shows when you share the link on WhatsApp)
+-----------------------------------------------------
+Folder: images/hero/
+File: og-image.webp          Size: 1200 x 630 px
+Idea: the hero picture with the school name and motto on it. Make it free in Canva.
+Your site currently uses home-hero.webp for this, so a clean 1200 x 630 version helps.
+
+
+-----------------------------------------------------
+PART 8 - HOW TO DOWNLOAD FROM PINTEREST
+-----------------------------------------------------
+1. Open the pin you like.
+2. Tap the three dots (...) then "Download image".
+3. For a sharper copy: click the pin's source link and download from the original website.
+4. Pinterest often gives small pictures (about 736 px wide). Small pictures look
+   blurry when stretched across a hero. If it looks soft, find a bigger one or
+   use the free sites in Part 9.
+5. Rename the file, convert it to .webp at squoosh.app, check it is under 300 KB.
+
+
+-----------------------------------------------------
+PART 9 - LICENSE WARNING AND SAFER SOURCES
+-----------------------------------------------------
+Most Pinterest pictures belong to someone else. Using them on a school website
+that earns money can cause copyright complaints. Safer plan:
+  - Use Pinterest to FIND the style you like (save it to a board as inspiration).
+  - Then download the same kind of picture from FREE-TO-USE sites:
+      * unsplash.com
+      * pexels.com
+      * pixabay.com
+    Use the same search phrases from this list on those sites.
+  - Check the license before you download. These three allow free use on websites.
+
+
+-----------------------------------------------------
+PART 10 - FINAL CHECKLIST
+-----------------------------------------------------
+[ ] Hero picture chosen and renamed home-hero.webp
+[ ] 4 course pictures chosen
+[ ] 3 studio card pictures chosen
+[ ] About page pictures chosen
+[ ] Admissions / contact / CTA pictures chosen
+[ ] Every picture converted to .webp and under 300 KB
+[ ] Files placed in the correct folders inside public/images/
+[ ] Site redeployed to Vercel and checked on your phone AND on a computer

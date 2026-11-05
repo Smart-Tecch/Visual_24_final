@@ -6,13 +6,17 @@ export const siteImages = {
   logo: "/images/logos/logo-main.webp",
   logoFull: "/images/logos/logo-full.webp",
   hero: "/images/hero/home-hero.webp",
+  og: "/images/hero/og-image.webp",
+  mission: "/images/about/about-mission.webp",
+  cta: "/images/admissions/cta-background.webp",
+  admissionsBanner: "/images/admissions/admissions-banner.webp",
   pages: {
     about: "/images/pages/about-hero.webp",
     contact: "/images/pages/contact-hero.webp",
-    courses: "/images/pages/courses-hero.webp",
+    courses: "/images/studios/studio-technical.webp",
     admissions: "/images/pages/admissions-hero.webp",
-    blog: "/images/pages/blog-hero.webp",
-    projects: "/images/categories/creative.webp",
+    blog: "/images/courses/photography.webp",
+    projects: "/images/studios/studio-creative.webp",
   },
 } as const;
 
@@ -54,9 +58,9 @@ const categoryBlurbs: Record<string, string> = {
 };
 
 const categoryImages: Record<string, string> = {
-  technical: "/images/categories/technical.webp",
-  creative: "/images/categories/creative.webp",
-  business: "/images/categories/business.webp",
+  technical: "/images/studios/studio-technical.webp",
+  creative: "/images/studios/studio-creative.webp",
+  business: "/images/studios/studio-business.webp",
 };
 
 export const studioCategories = [...schoolData.categories]
