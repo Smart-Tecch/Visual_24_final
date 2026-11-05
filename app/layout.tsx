@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     images: ["/images/hero/og-image.webp"],
   },
   icons: {
-    icon: "/images/logos/favicon.webp",
-    apple: "/images/logos/logo-main.webp",
+    icon: [{ url: "/images/logos/favicon.png", type: "image/png", sizes: "64x64" }],
+    apple: "/images/logos/apple-touch-icon.png",
   },
   verification: {
     google: "googlef17b3180d990c7e1",
