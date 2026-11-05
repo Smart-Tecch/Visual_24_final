@@ -136,7 +136,7 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
               <div className="flex flex-col gap-0 px-6 pt-6">
                 <Link
                   href="/"
-                  className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight hover:text-primary sm:text-[1.875rem]"
+                  className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight text-white hover:text-[#f6d48a] sm:text-[1.875rem]"
                 >
                   Home
                 </Link>
@@ -144,7 +144,7 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                   <Link
                     key={page.name}
                     href={page.to}
-                    className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight hover:text-primary sm:text-[1.875rem]"
+                    className="flex min-h-11 items-center py-2 text-[1.375rem] font-semibold tracking-tight text-white hover:text-[#f6d48a] sm:text-[1.875rem]"
                   >
                     {page.name}
                   </Link>
@@ -156,7 +156,8 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                   <Link
                     href="/contact"
                     className={buttonVariants({
-                      className: "h-11 flex-1 px-5",
+                      className:
+                        "h-11 flex-1 bg-white px-5 !text-[#0b1f4b] hover:bg-[#eef2fb] hover:!text-[#0b1f4b]",
                     })}
                   >
                     Inquire
@@ -180,7 +181,7 @@ const Navbar = ({ showProjects = false, motto }: NavbarProps) => {
                         href={social.to}
                         target={social.target}
                         rel={social.rel}
-                        className="text-white/70 hover:text-primary"
+                        className="text-white hover:text-[#f6d48a]"
                         aria-label={social.name}
                       >
                         <Icon className="size-5" />

@@ -33,25 +33,18 @@ export default function AboutPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <p className="kicker text-muted-foreground">Mission</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            <p className="kicker text-[#a30f28]">Mission</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               {about.mission}
             </h2>
-            <p className="kicker mt-10 text-muted-foreground">Studio code</p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          </div>
+          <div>
+            <p className="kicker text-[#a30f28]">Studio code</p>
+            <p className="mt-4 text-lg leading-relaxed text-foreground">
               {about.studioCode}
             </p>
-          </div>
-          <div className="relative min-h-[360px] overflow-hidden rounded-2xl">
-            <Image
-              src={siteImages.mission}
-              alt="Students collaborating on laptops in class"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
           </div>
         </div>
       </section>
@@ -111,7 +104,7 @@ export default function AboutPage() {
                       href={member.socialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-block text-sm font-medium underline underline-offset-4"
+                      className="mt-4 inline-block text-sm font-medium text-[#a30f28] underline underline-offset-4 hover:text-[#0b1f4b]"
                     >
                       TikTok profile
                     </Link>
@@ -152,7 +145,7 @@ export default function AboutPage() {
                             href={sponsor.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline"
+                            className="text-[#0b1f4b] underline-offset-4 hover:text-[#a30f28] hover:underline"
                           >
                             {sponsor.name}
                           </Link>

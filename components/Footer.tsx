@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-dark-100/70" />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <p className="kicker text-primary">Admission</p>
+          <p className="kicker text-[#f6d48a]">Admission</p>
           <h2 className="mt-4 max-w-xl text-4xl font-semibold tracking-tight sm:text-6xl">
             Ready to build real skills?
           </h2>
@@ -47,7 +47,10 @@ const Footer = () => {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className={buttonVariants({ className: "h-11 px-6" })}
+              className={buttonVariants({
+                className:
+                  "h-11 bg-white px-6 !text-[#0b1f4b] hover:bg-[#eef2fb] hover:!text-[#0b1f4b]",
+              })}
             >
               Inquire
             </Link>
@@ -63,7 +66,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-end gap-6 text-sm text-white/70">
+        <div className="flex flex-col justify-end gap-6 text-sm text-white">
           <p>
             {school.name}
             <br />
@@ -71,7 +74,7 @@ const Footer = () => {
           </p>
           {email ? (
             <p>
-              <a className="hover:text-primary" href={`mailto:${email}`}>
+              <a className="text-white hover:text-[#f6d48a]" href={`mailto:${email}`}>
                 {email}
               </a>
             </p>
@@ -81,7 +84,7 @@ const Footer = () => {
               {phones.map((phone) => (
                 <a
                   key={phone}
-                  className="mr-3 hover:text-primary"
+                  className="mr-3 text-white hover:text-[#f6d48a]"
                   href={`tel:${phone.replace(/\s/g, "")}`}
                 >
                   {phone}
@@ -92,7 +95,7 @@ const Footer = () => {
           {whatsapp ? (
             <p>
               <a
-                className="inline-flex items-center gap-2 hover:text-primary"
+                className="inline-flex items-center gap-2 text-white hover:text-[#f6d48a]"
                 href={whatsappHref(whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -111,7 +114,7 @@ const Footer = () => {
                   href={social.to}
                   target={social.target}
                   rel={social.rel}
-                  className="hover:text-primary"
+                  className="text-white hover:text-[#f6d48a]"
                   aria-label={social.name}
                 >
                   <Icon className="size-5" />
@@ -126,13 +129,13 @@ const Footer = () => {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-white/50 sm:px-8">
           <p>© 2026 {school.shortName}. All rights reserved.</p>
           <div className="flex gap-5">
-            <Link href="/about" className="hover:text-white">
+            <Link href="/about" className="text-white/80 hover:text-white">
               About
             </Link>
-            <Link href="/courses" className="hover:text-white">
+            <Link href="/courses" className="text-white/80 hover:text-white">
               Courses
             </Link>
-            <Link href="/contact" className="hover:text-white">
+            <Link href="/contact" className="text-white/80 hover:text-white">
               Contact
             </Link>
           </div>

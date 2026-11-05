@@ -22,12 +22,12 @@ export default function PageHero({
         alt={imageAlt}
         fill
         priority
-        className="object-cover"
+        className="object-cover object-[center_35%]"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-linear-to-t from-dark-100/80 via-dark-100/35 to-dark-100/20" />
       <div className="absolute inset-x-0 bottom-0 mx-auto max-w-7xl px-5 pb-12 sm:px-8">
-        {kicker ? <p className="kicker text-primary">{kicker}</p> : null}
+        {kicker ? <p className="kicker text-[#f6d48a]">{kicker}</p> : null}
         <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
           {title}
         </h1>

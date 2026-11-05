@@ -42,7 +42,7 @@
       "relationship": "Partner",
       "description": "Funding",
       "url": "https://www.tiktok.com/@frank.picson?is_from_webapp=1&sender_device=pc",
-      "logo": "/images/sponsors/t24-tours.webp",
+      "logo": "/images/sponsors/t24-tours.jpg",
       "show": true
     },
     {
@@ -50,7 +50,7 @@
       "relationship": "Partner",
       "description": "Jobs",
       "url": "https://www.tiktok.com/@dzionzyouthcenter?is_from_webapp=1&sender_device=pc",
-      "logo": "/images/sponsors/dzionz-youth-center.webp",
+      "logo": "/images/sponsors/dzionz-youth-center.jpg",
       "show": true
     }
   ],
@@ -261,7 +261,7 @@
       "team": [
         {
           "name": "Mukalazi Abdul-Noor Miqdaad",
-          "role": "Founder",
+          "role": "Data Analyist, Web-designer",
           "coursesTaught": "Microsoft Office Suite / Setup, Web-designing",
           "socialUrl": "https://www.tiktok.com/@al.muqudaad?is_from_webapp=1&sender_device=pc",
           "photo": null,
