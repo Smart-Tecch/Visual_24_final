@@ -32,55 +32,64 @@ export default function HomePage() {
 
   return (
     <div className="bg-background text-foreground">
-      <section className="relative min-h-screen w-full overflow-hidden">
+      <section className="relative min-h-[100svh] w-full overflow-hidden">
         <Image
           src={siteImages.hero}
           alt="Students learning web and computer skills at Visual 24 Technical Institute"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[68%_center]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-dark-100 via-dark-100/25 to-dark-100/15" />
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-5 pb-10 pt-28 sm:px-8">
-          <p className="mb-6 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
-            {home.heroSubtitle}
-          </p>
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <p className="kicker max-w-xs text-white/70">{settings.motto}</p>
-            <h1 className="text-[16vw] leading-[0.8] font-semibold tracking-tight text-white uppercase sm:text-[10vw] lg:text-[7.5rem]">
+        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,18,46,0.9)_0%,rgba(8,18,46,0.62)_46%,rgba(8,18,46,0.16)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,18,46,0.45),transparent_38%)]" />
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-end px-5 pt-28 pb-14 sm:px-8 lg:items-center lg:pb-16">
+          <div className="max-w-xl">
+            <p className="kicker text-[#f6d48a]">{settings.motto}</p>
+            <h1 className="mt-4 text-5xl leading-[0.95] font-semibold tracking-tight text-white sm:text-7xl">
               {settings.shortName}
             </h1>
-          </div>
-          {home.heroTags?.length ? (
-            <div className="mt-6 flex flex-wrap gap-2">
-              {home.heroTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/90"
-                >
-                  {tag}
-                </span>
-              ))}
+            <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">
+              {home.heroSubtitle}
+            </p>
+            {home.heroTags?.length ? (
+              <div className="mt-6 flex flex-wrap gap-2">
+                {home.heroTags.map((tag, index) => (
+                  <span
+                    key={tag}
+                    className={`rounded-full px-3 py-1 text-xs font-medium ${
+                      [
+                        "bg-[#dbe7ff] text-[#163273]",
+                        "bg-[#ffe8c2] text-[#7a4b08]",
+                        "bg-[#ffd6de] text-[#8c1024]",
+                      ][index % 3]
+                    }`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={home.primaryCta.href}
+                className={buttonVariants({
+                  className:
+                    "h-11 bg-white px-6 !text-[#0b1f4b] hover:bg-[#eef2fb] hover:!text-[#0b1f4b]",
+                })}
+              >
+                {home.primaryCta.label}
+              </Link>
+              <Link
+                href={home.secondaryCta.href}
+                className={buttonVariants({
+                  variant: "accent",
+                  className: "h-11 px-6",
+                })}
+              >
+                {home.secondaryCta.label}
+              </Link>
             </div>
-          ) : null}
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={home.primaryCta.href}
-              className={buttonVariants({ className: "h-11 px-6" })}
-            >
-              {home.primaryCta.label}
-            </Link>
-            <Link
-              href={home.secondaryCta.href}
-              className={buttonVariants({
-                variant: "outline",
-                className:
-                  "h-11 border-white/40 bg-white/10 px-6 text-white hover:bg-white/20 hover:text-white",
-              })}
-            >
-              {home.secondaryCta.label}
-            </Link>
           </div>
         </div>
       </section>
